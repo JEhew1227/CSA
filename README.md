@@ -27,9 +27,9 @@ Wei Xin (this guys anytime also active XD)
 * login and sign up
 * This function allows the user to login or create a new account if they don't have one. This online
    system will only provide services to registered users.
-*logo
-*username
-*password
-*validation
-*login
+* logo
+* username
+* password
+* validation
+* login
 
