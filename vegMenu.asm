@@ -1,24 +1,33 @@
 .MODEL SMALL
 .STACK 100
 .DATA
-	STR1  DB "*===============================================*$"
-	STR2  DB "*           Vegetables Menu                     *$"
-	STR3  DB "*-----------------------------------------------*$"
-	STR4  DB "*  NO.     Vegetable                            *$"
-        STR5  DB "*-----------------------------------------------*$"
-        STR6  DB "*  1.      Lettuce                              *$"
-        STR7  DB "*  2.      Carrot                               *$"
-	STR8  DB "*  3.      Cucumber                             *$"
-	STR9  DB "*  4.      Potato                               *$"
-	STR10 DB "*  5.      Onion                                *$"
-	STR11 DB "*  6.      Garlic                               *$"
-	STR12 DB "*  7.      Corn                                 *$"
-    STR13 DB "*-----------------------------------------------*$"
-    STR14 DB "*  8.      Back                                 *$"
-	STR15 DB "*===============================================*$"
-	STR16 DB "$"
-	NUM2 DB ?
-	STR17 DB" Enter Your Choice (1-8) : $" 
+
+        STR1  DB "   __      __        __  __                      $" 
+        STR2  DB "   \ \    / /       |  \/  |                     $"
+        STR3  DB "    \ \  / /__  __ _| \  / | ___ _ __  _   _     $" 
+        STR4  DB "     \ \/ / _ \/ _` | |\/| |/ _ \ '_ \| | | |    $"
+        STR5  DB "      \  /  __/ (_| | |  | |  __/ | | | |_| |    $"
+        STR6  DB "       \/ \___|\__, |_|  |_|\___|_| |_|\__,_|    $"
+        STR7  DB "                __/ |                            $"
+        STR8  DB "               |___/                             $"
+	STR9  DB "*===============================================*$"
+	STR10 DB "*           Vegetables Menu                     *$"
+	STR11 DB "*-----------------------------------------------*$"
+	STR12 DB "*  NO.     Vegetable                            *$"
+        STR13 DB "*-----------------------------------------------*$"
+        STR14 DB "*  1.      Lettuce                              *$"
+        STR15 DB "*  2.      Carrot                               *$"
+	STR16 DB "*  3.      Cucumber                             *$"
+	STR17 DB "*  4.      Potato                               *$"
+	STR18 DB "*  5.      Onion                                *$"
+	STR19 DB "*  6.      Garlic                               *$"
+	STR20 DB "*  7.      Corn                                 *$"
+        STR21 DB "*-----------------------------------------------*$"
+        STR22 DB "*  8.      Back                                 *$"
+	STR23 DB "*===============================================*$"
+	STR24 DB "$"
+	NUM2  DB ?
+	STR25 DB" Enter Your Choice (1-8) : $" 
 	NL DB 0DH, 0AH, "$"
 .CODE
 MAIN PROC
@@ -186,9 +195,89 @@ MOV AX, @DATA
 		LEA DX, NL ;MOV DX, OFFSET STR 
 		INT 21H
 		
+		;DISPLAY A STRING17
+		MOV AH, 09H
+		LEA DX, STR17 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING18
+		MOV AH, 09H
+		LEA DX, STR18 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING19
+		MOV AH, 09H
+		LEA DX, STR19 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING20
+		MOV AH, 09H
+		LEA DX, STR20 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING21
+		MOV AH, 09H
+		LEA DX, STR21 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING22
+		MOV AH, 09H
+		LEA DX, STR22 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING23
+		MOV AH, 09H
+		LEA DX, STR23 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING24
+		MOV AH, 09H
+		LEA DX, STR24 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
 		;INPUT
 		MOV AH,09H
-		LEA DX,STR17
+		LEA DX,STR25
 		INT 21H
 
 		MOV AH,01H
