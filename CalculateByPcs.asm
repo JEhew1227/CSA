@@ -42,7 +42,7 @@ q - quantity
 
 
     Total 
-	.MODEL SMALL
+    .MODEL SMALL
     .STACK 100
     .DATA
 
