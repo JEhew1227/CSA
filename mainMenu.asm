@@ -1,19 +1,27 @@
 .MODEL SMALL
 .STACK 100
 .DATA
-	STR1 DB "*===============================================*$"
-	STR2 DB "*           Vegetable and Fruit Menu            *$"
-	STR3 DB "*-----------------------------------------------*$"
-	STR4 DB "*  NO.     Category                             *$"
-        STR5 DB "*-----------------------------------------------*$"
-        STR6 DB "*  1.      Vegetable                            *$"
-        STR7 DB "*  2.      Fruits                               *$"
-        STR8 DB "*-----------------------------------------------*$"
-        STR9 DB "*  3.      Back                                 *$"
-	STR10 DB"*===============================================*$"
-	STR11 DB"$"
+
+        STR1  DB "  ___ ___      _      ___  ___                   $"
+        STR2  DB " |  \/  |     (_)     |  \/  |                   $"
+        STR3  DB " | .  . | __ _ _ _ __ | .  . | ___ _ __  _   _   $"
+        STR4  DB " | |\/| |/ _` | | '_ \| |\/| |/ _ \ '_ \| | | |  $"
+        STR5  DB " | |  | | (_| | | | | | |  | |  __/ | | | |_| |  $"
+        STR6  DB " \_|  |_/\__,_|_|_| |_\_|  |_/\___|_| |_|\__,_|  $"
+        STR7  DB "                                                 $"
+	STR8  DB "*===============================================*$"
+	STR9  DB "*           Vegetable and Fruit Menu            *$"
+	STR10 DB "*-----------------------------------------------*$"
+	STR11 DB "*  NO.     Category                             *$"
+        STR12 DB "*-----------------------------------------------*$"
+        STR13 DB "*  1.      Vegetable                            *$"
+        STR14 DB "*  2.      Fruits                               *$"
+        STR15 DB "*-----------------------------------------------*$"
+        STR16 DB "*  3.      Back                                 *$"
+	STR17 DB"*================================================*$"
+	STR18 DB"$"
 	NUM1 DB ?
-	STR12 DB" Enter Your Choice (1-3) : $" 
+	STR19 DB" Enter Your Choice (1-3) : $" 
 	NL DB 0DH, 0AH, "$"
 .CODE
 MAIN PROC
@@ -131,9 +139,79 @@ MOV AX, @DATA
 		LEA DX, NL ;MOV DX, OFFSET STR 
 		INT 21H
 		
+		;DISPLAY A STRING12
+		MOV AH, 09H
+		LEA DX, STR12 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING13
+		MOV AH, 09H
+		LEA DX, STR13 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING14
+		MOV AH, 09H
+		LEA DX, STR14 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING15
+		MOV AH, 09H
+		LEA DX, STR15 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING16
+		MOV AH, 09H
+		LEA DX, STR16 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING17
+		MOV AH, 09H
+		LEA DX, STR17 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING18
+		MOV AH, 09H
+		LEA DX, STR18 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
 		;INPUT
 		MOV AH,09H
-		LEA DX,STR12
+		LEA DX,STR19
 		INT 21H
 
 		MOV AH,01H
