@@ -1,8 +1,8 @@
 .model small
 .stack 100H
 .data
-    MSG1 DB "Do you have any more order? (Y or N)$"
-    STR1 DB "*===========================================*$"
+        MSG1 DB "Do you have any more order? (Y or N)$"
+        STR1 DB "*===========================================*$"
 	STR2 DB "*                  PAYMENT                  *$"
 	STR3 DB "*===========================================*$"
 	STR4 DB "*Product choosen :                          *$"
