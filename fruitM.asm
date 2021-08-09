@@ -1,26 +1,33 @@
 .MODEL SMALL
 .STACK 100
 .DATA
-	STR1  DB "*===============================================*$"
-	STR2  DB "*           Fruits Menu                         *$"
-	STR3  DB "*-----------------------------------------------*$"
-	STR4  DB "*  NO.     Fruits                               *$"
-        STR5  DB "*-----------------------------------------------*$"
-        STR6  DB "*  1.      Apples                               *$"
-        STR7  DB "*  2.      Pears                                *$"
-	STR8  DB "*  3.      Oranges                              *$"
-	STR9  DB "*  4.      Mandarins                            *$"
-	STR10 DB "*  5.      Bananas                              *$"
-	STR11 DB "*  6.      Mangoes                              *$"
-	STR12 DB "*  7.      Watermelons                          *$"
-	STR13 DB "*  8.      Honeydew Melons                      *$"
-	STR14 DB "*  9.      Durians                              *$"
-        STR15 DB "*-----------------------------------------------*$"
-        STR16 DB "*  10.      Back                                *$"
-	STR17 DB "*===============================================*$"
-	STR18 DB "$"
-	NUM3 DB ?
-	STR19 DB" Enter Your Choice (1-10) : $" 
+
+    STR1   DB "   _____           _ _   __  __                   $"
+    STR2   DB "  |  ___| __ _   _(_) |_|  \/  | ___ _ __  _   _  $"
+    STR3   DB "  | |_ | '__| | | | | __| |\/| |/ _ \ '_ \| | | | $"
+    STR4   DB "  |  _|| |  | |_| | | |_| |  | |  __/ | | | |_| | $"
+    STR5   DB "  |_|  |_|   \__,_|_|\__|_|  |_|\___|_| |_|\__,_| $"
+    STR6   DB "                                                  $"
+	STR7   DB "*================================================*$"
+	STR8   DB "*           Fruits Menu                          *$"
+	STR9   DB "*------------------------------------------------*$"
+	STR10  DB "*  NO.     Fruits                                *$"
+    STR11  DB "*------------------------------------------------*$"
+    STR12  DB "*  1.      Apples                                *$"
+    STR13  DB "*  2.      Pears                                 *$"
+	STR14  DB "*  3.      Oranges                               *$"
+	STR15  DB "*  4.      Mandarins                             *$"
+	STR16  DB "*  5.      Bananas                               *$"
+	STR17  DB "*  6.      Mangoes                               *$"
+	STR18  DB "*  7.      Watermelons                           *$"
+	STR19  DB "*  8.      Honeydew Melons                       *$"
+	STR20  DB "*  9.      Durians                               *$"
+    STR21  DB "*------------------------------------------------*$"
+    STR22  DB "*  10.      Back                                 *$"
+	STR23  DB "*================================================*$"
+	STR24  DB "$"
+	NUM3   DB ?
+	STR25  DB" Enter Your Choice (1-10) : $" 
 	NL DB 0DH, 0AH, "$"
 .CODE
 MAIN PROC
@@ -208,9 +215,69 @@ MOV AX, @DATA
 		LEA DX, NL ;MOV DX, OFFSET STR 
 		INT 21H
 		
+		;DISPLAY A STRING19
+		MOV AH, 09H
+		LEA DX, STR19 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING20
+		MOV AH, 09H
+		LEA DX, STR20 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING21
+		MOV AH, 09H
+		LEA DX, STR21 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING22
+		MOV AH, 09H
+		LEA DX, STR22 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING23
+		MOV AH, 09H
+		LEA DX, STR23 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
+		;DISPLAY A STRING24
+		MOV AH, 09H
+		LEA DX, STR24 ;MOV DX, OFFSET STR1 
+		INT 21H
+		
+		;DISPLAY A NEW LINE
+		MOV AH, 09H
+		LEA DX, NL ;MOV DX, OFFSET STR 
+		INT 21H
+		
 		;INPUT
 		MOV AH,09H
-		LEA DX,STR19
+		LEA DX,STR25
 		INT 21H
 
 		MOV AH,01H
