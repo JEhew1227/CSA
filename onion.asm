@@ -17,7 +17,7 @@
 .CODE
 MAIN PROC
 
-MOV AX, @DATA
+                MOV AX, @DATA
 		MOV DS, AX
 		
 		;DISPLAY A STRING1
