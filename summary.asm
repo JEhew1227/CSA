@@ -49,6 +49,36 @@ main proc
     LEA DX,MSG5
     INT 21H
 	
+ ;TotalPrice
+	
+	totalprice:
+	mov ah,9
+    Lea dx,m6
+    int 21h 
+            
+    xor ax,ax
+            
+    mov ax,bx
+    call outdec
+            
+    mov ah,9
+    Lea dx,m13
+    int 21h
+            
+    mov ah,9
+    Lea dx,m14
+    int 21h
+            
+    mov ah,1
+    int 21h
+            
+    cmp al,31h
+    je start
+            
+    mov ah,9
+    Lea dx,m7
+    int 21h
+    
 	mov ah, 4CH
 	int 21h
 main endp	
