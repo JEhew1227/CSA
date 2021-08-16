@@ -1,230 +1,306 @@
-.MODEL SMALL
-.STACK 100
-.DATA
-
-        STR1  DB "  ___ ___      _      ___  ___                   $"
-        STR2  DB " |  \/  |     (_)     |  \/  |                   $"
-        STR3  DB " | .  . | __ _ _ _ __ | .  . | ___ _ __  _   _   $"
-        STR4  DB " | |\/| |/ _` | | '_ \| |\/| |/ _ \ '_ \| | | |  $"
-        STR5  DB " | |  | | (_| | | | | | |  | |  __/ | | | |_| |  $"
-        STR6  DB " \_|  |_/\__,_|_|_| |_\_|  |_/\___|_| |_|\__,_|  $"
-        STR7  DB "                                                 $"
-	STR8  DB "*===============================================*$"
-	STR9  DB "*           Vegetable and Fruit Menu            *$"
-	STR10 DB "*-----------------------------------------------*$"
-	STR11 DB "*  NO.     Category                             *$"
-        STR12 DB "*-----------------------------------------------*$"
-        STR13 DB "*  1.      Vegetable                            *$"
-        STR14 DB "*  2.      Fruits                               *$"
-        STR15 DB "*-----------------------------------------------*$"
-        STR16 DB "*  3.      Back                                 *$"
-	STR17 DB"*================================================*$"
-	STR18 DB"$"
-	NUM1 DB ?
-	STR19 DB" Enter Your Choice (1-3) : $" 
+.model small
+.stack 100
+.data
 	NL DB 0DH, 0AH, "$"
-.CODE
-MAIN PROC
+	line1 db 			'                       --------------------------$'
+	line2 db 			'                        Welcome to Happy Organic $'
+	line3 db 			'                       --------------------------$'
+	line4 db 			'                               1.Sign up         $'
+	line5 db 			'                               2.Login           $'
+	line6 db 			'                               3.Exit            $'
+	line7 db 			'                       --------------------------$'
+	logo1 db 			' _     ____  ____  ____ ___  _ ____  ____  _____ ____  _      _  ____ $'
+	logo2 db 			'/ \ /|/  _ \/  __\/  __\\  \///  _ \/  __\/  __//  _ \/ \  /|/ \/   _\$'
+	logo3 db 			'| |_||| / \||  \/||  \/| \  / | / \||  \/|| |  _| / \|| |\ ||| ||  /  $'
+	logo4 db 			'| | ||| |-|||  __/|  __/ / /  | \_/||    /| |_//| |-||| | \||| ||  \_ $'
+	logo5 db 			'\_/ \|\_/ \|\_/   \_/   /_/   \____/\_/\_\\____\\_/ \|\_/  \|\_/\____/$'
+	
+	prompt db 			'                          Enter Your Choice: $'
+	choice db ?
+	
+	;sign up
+	promptSign db 		'                         Enter New User Name: $'
+	promptNewPasswrd db '                          Enter New Password: $'
+	
+	;login
+	promptLog db 		'                       Enter User Name: $'
+	promptpasswrd db 	'                       Enter Password: $' 
+	
+	
+	
+	
+	;acc variable
+	newUsrname db 31
+			   db ?
+			   db 31(?)
+	
+	newPasswrd db 31
+			   db ?
+			   db 31(?)
+	
+	signSuccess db 		'                       Successfully Registered $'
+	logSuccess db '                       Successfully logged in $'
+	;testacc1
+	usrName1 db 'kungweixin'
+	passwrd1 db 'kungweixin'
+	count db 10
+	
+	;login successful
+	
+	;incorrect username
+	incorrectUsrName db 'Username not found $'
+	
+	
+.code
+main proc
+	mov ax, @data
+	mov ds, ax
 
-MOV AX, @DATA
-		MOV DS, AX
-		
-		;DISPLAY A STRING1
-		MOV AH, 09H
-		LEA DX, STR1 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING2
-		MOV AH, 09H
-		LEA DX, STR2 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING3
-		MOV AH, 09H
-		LEA DX, STR3 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING4
-		MOV AH, 09H
-		LEA DX, STR4 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING5
-		MOV AH, 09H
-		LEA DX, STR5 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING6
-		MOV AH, 09H
-		LEA DX, STR6 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING7
-		MOV AH, 09H
-		LEA DX, STR7 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING8
-		MOV AH, 09H
-		LEA DX, STR8 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING9
-		MOV AH, 09H
-		LEA DX, STR9 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING10
-		MOV AH, 09H
-		LEA DX, STR10 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING11
-		MOV AH, 09H
-		LEA DX, STR11 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING12
-		MOV AH, 09H
-		LEA DX, STR12 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING13
-		MOV AH, 09H
-		LEA DX, STR13 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING14
-		MOV AH, 09H
-		LEA DX, STR14 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING15
-		MOV AH, 09H
-		LEA DX, STR15 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING16
-		MOV AH, 09H
-		LEA DX, STR16 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING17
-		MOV AH, 09H
-		LEA DX, STR17 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;DISPLAY A STRING18
-		MOV AH, 09H
-		LEA DX, STR18 ;MOV DX, OFFSET STR1 
-		INT 21H
-		
-		;DISPLAY A NEW LINE
-		MOV AH, 09H
-		LEA DX, NL ;MOV DX, OFFSET STR 
-		INT 21H
-		
-		;INPUT
-		MOV AH,09H
-		LEA DX,STR19
-		INT 21H
+	;new line
+	MOV AH, 09H
+	LEA DX, NL 
+	INT 21H
+	
+	;display logo
+	mov ah, 09h
+	lea dx, logo1 
+	int 21h
+	
+	MOV AH, 09H
+	LEA DX, NL 
+	INT 21H
+	
+	mov ah, 09h
+	lea dx, logo2
+	int 21h
+	
+	MOV AH, 09H
+	LEA DX, NL 
+	INT 21H
+	
+	mov ah, 09h
+	lea dx, logo3
+	int 21h
+	
+	MOV AH, 09H
+	LEA DX, NL 
+	INT 21H
+	 
+	mov ah, 09h
+	lea dx, logo4
+	int 21h
+	
+	MOV AH, 09H
+	LEA DX, NL 
+	INT 21H
+	
+	mov ah, 09h
+	lea dx, logo5
+	int 21h
+	
+	;double new line
+	MOV AH, 09H	
+	LEA DX, NL 
+	INT 21H
+	MOV AH, 09H	
+	LEA DX, NL 
+	INT 21H
 
-		MOV AH,01H
-		INT 21H
-		SUB AL,30H
-		MOV NUM1,AL
+	mov ah, 09h
+	lea dx, line1;
+	int 21h
+	
+	MOV AH, 09H	
+	LEA DX, NL ;new line
+	INT 21H
+	
+	mov ah, 09h
+	lea dx, line2;
+	int 21h
+	
+	MOV AH, 09H	
+	LEA DX, NL ;new line
+	INT 21H
+	
+	mov ah, 09h
+	lea dx, line3
+	int 21h
+	
+	MOV AH, 09H	
+	LEA DX, NL ;new line
+	INT 21H
+	
+	mov ah, 09h
+	lea dx, line4 
+	int 21h
+	
+	MOV AH, 09H	
+	LEA DX, NL ;new line
+	INT 21H
+	
+	mov ah, 09h
+	lea dx, line5
+	int 21h
+	
+	MOV AH, 09H	
+	LEA DX, NL ;new line
+	INT 21H
+	
+	mov ah, 09h
+	lea dx, line6
+	int 21h
 
-		MOV AH,09H
-		LEA DX,NL
+	MOV AH, 09H	
+	LEA DX, NL ;new line
+	INT 21H
+
+	mov ah, 09h
+	lea dx, line7
+	int 21h
+	
+	MOV AH, 09H	
+	LEA DX, NL ;new line
+	INT 21H
+	
+	;prompt choice
+	mov ah, 09h
+	lea dx, prompt 
+	int 21h
+	
+	;Choice Entered and saved
+	mov ah, 01h	   
+	int 21h 
+	
+	cmp al, 31h
+	je signUp	
+	cmp al, 32h
+	je login
+	cmp al, 33h
+	je exit
+	
+	exit: 
+		;newLine
+		mov ah, 09h
+		lea dx, NL
+		int 21h
+	
+	
+	signUp: 
+		;new line
+		MOV AH, 09H	
+		LEA DX, NL 
 		INT 21H
 		
-		MOV AX, 4C00H
+		;prompt new username
+		mov ah, 09h
+		lea dx, promptSign
+		int 21h
+		
+		;new username input
+		mov ah, 0AH
+		mov dx, offset newUsrname
+		int 21h
+		
+		;new line
+		MOV AH, 09H	
+		LEA DX, NL 
 		INT 21H
 		
-MAIN ENDP
-END MAIN
+		;prompt new password
+		mov ah, 09h
+		lea dx, promptNewPasswrd
+		int 21h
+		
+		;new password input
+		mov ah, 0AH
+		mov dx, offset newPasswrd
+		int 21h
+		
+		
+		jmp main
+		
+	login:
+		;new line
+		MOV AH, 09H	
+		LEA DX, NL 
+		INT 21H
+	
+		;prompt new username
+		mov ah, 09h
+		lea dx, promptLog 
+		int 21h
+		
+		
+		;username input
+		
+			mov bx, offset usrName1
+			mov cx, 10 ; subject to be changed	
+			
+		again: 
+			mov ah, 01h
+			int 21h
+			
+			;will loop if wrong character is entered
+			cmp al, [bx]
+			jne incorrect
+			inc bx
+			loop again
+			;if input is correct
+			jmp pswrdLogin
+		
+			incorrect:
+				mov ah, 09h
+				lea dx, incorrectUsrName
+				int 21h
+		
+		pswrdLogin:
+		
+			mov bx, offset passwrd1
+			mov cx, 10 ; subject to be changed
+			
+			mov ah,09h
+			lea dx, NL
+			int 21h
+			
+			mov ah, 09h
+			lea dx, promptpasswrd
+			int 21h
+			
+			again1: 
+				;input
+				mov ah, 01h
+				int 21h
+			
+				;will loop if wrong character is entered
+				cmp al, [bx]
+				jne incorrect
+				inc bx
+				loop again1
+				
+				;if input is correct
+				jmp success
+		
+			incorrect1:
+			mov ah, 09h
+			lea dx, incorrectUsrName
+			int 21h
+		
+		success:
+			mov ah, 09h
+			lea dx, NL
+			int 21h
+		
+			mov ah, 09h
+			lea dx, logSuccess
+			int 21h
+	
+			jmp done
+	
+	done: 
+		mov ah, 4ch	
+		int 21h
+		
+		
+	
+main endp
+end main
