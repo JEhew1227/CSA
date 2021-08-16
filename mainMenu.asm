@@ -48,7 +48,7 @@
 	;login successful
 	
 	;incorrect username
-	incorrectUsrName db 'Username not found $'
+	incorrectUsrName db '                       Username not found $'
 	
 	
 .code
