@@ -1,6 +1,6 @@
 # CSA
 
-Lik Sheng (dont play too much game then no feel stress loh, everytime i call want update the code then say stress XD)
+LIK SHENG (DONT PLAY TOO MUCH GAME LAH, EVERYTIME I CALL UPDATE THEN SAY STRESS, STRESS LAN MEH)
 * Summary
 * summary the product that the customer selected and total the price to let the customer view what they add to cart. Afterward, let customer double check their purchase
 * summary title
