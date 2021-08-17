@@ -6,12 +6,13 @@
 	MSG3 DB "				  					Summary						              $"
 	MSG4 DB "*===========================================================================*$"
 	MSG5 DB "	Product :							      								  $" 
-	MSG6 DB "*---------------------------------------------------------------------------*$"
-	MSG7 DB "	SubTotal + Service Tax :					     						  $"
-	MSG8 DB "*---------------------------------------------------------------------------*$"
-	MSG9 DB "	Total : 							     								 *$"
-	MSG10 DB "*==========================================================================*$"
-	MSG11 DB "				Thank you for the purchase! See you again!	     			  $"
+	MSG6 DB "	Quantity:
+	MSG7 DB "*---------------------------------------------------------------------------*$"
+	MSG8 DB "	SubTotal + Service Tax :					     						  $"
+	MSG9 DB "*---------------------------------------------------------------------------*$"
+	MSG10 DB "	Total : 							     								 *$"
+	MSG11 DB "*==========================================================================*$"
+	MSG12 DB "				Thank you for the purchase! See you again!	     			  $"
 
 .code
 main proc
@@ -100,6 +101,14 @@ main proc
 
 	mov AH,09H
     lea DX,MSG11
+    int 21H
+
+	LEA DX,n_line
+    MOV AH,9
+    INT 21H 
+    
+    mov AH,09H
+    lea DX,MSG12
     int 21H
 
 	LEA DX,n_line
