@@ -9,7 +9,7 @@
 	MSG6 DB "|Product :			                            |$" 
 	MSG7 DB "|Quantity:                                                  |$"
 	MSG8 DB "|-----------------------------------------------------------|$"
-	MSG9 DB "|SubTotal + Service Tax :			            |$"
+	MSG9 DB "|SubTotal :			                            |$"
 	MSG10 DB "|-----------------------------------------------------------|$"
 	MSG11 DB "|Total : 						    |$"
 	MSG12 DB "|===========================================================|$"
@@ -25,7 +25,7 @@ main proc
     mov ax, 0003H
     int 10H
 	
-    L1:
+    Summary:
         mov AH,09H
         lea DX,MSG1
         int 21H
