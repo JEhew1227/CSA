@@ -1,9 +1,6 @@
-.model small
-.stack 100
-
 .data
 	NL DB 0DH, 0AH, "$"
-	line db 0dh,0ah,"                       --------------------------"
+	line	 db 0dh,0ah,"                       --------------------------"
 		 db 0dh,0ah,"                        Welcome to Happy Organic "
 		 db 0dh,0ah,"                       --------------------------"
 		 db 0dh,0ah,"                               1.Sign up         "
@@ -11,8 +8,8 @@
 		 db 0dh,0ah,"                               3.Exit            "
 		 db 0dh,0ah,"                       --------------------------$"
 		 
-	logo db 0dh,0ah," _     ____  ____  ____ ___  _ ____  ____  _____ ____  _      _  ____ "
-	     db 0dh,0ah,"/ \ /|/  _ \/  __\/  __\\  \///  _ \/  __\/  __//  _ \/ \  /|/ \/   _\"
+	logo 	 db 0dh,0ah," _     ____  ____  ____ ___  _ ____  ____  _____ ____  _      _  ____ "
+	     	 db 0dh,0ah,"/ \ /|/  _ \/  __\/  __\\  \///  _ \/  __\/  __//  _ \/ \  /|/ \/   _\"
 		 db 0dh,0ah,"| |_||| / \||  \/||  \/| \  / | / \||  \/|| |  _| / \|| |\ ||| ||  /  "
 		 db 0dh,0ah,"| | ||| |-|||  __/|  __/ / /  | \_/||    /| |_//| |-||| | \||| ||  \_ "
 		 db 0dh,0ah,"\_/ \|\_/ \|\_/   \_/   /_/   \____/\_/\_\\____\\_/ \|\_/  \|\_/\____/$"
@@ -51,22 +48,10 @@
 	
 	
 .code 
-main proc
-
-	mov ax, @data
-	mov ds, ax
-
-	call LOGIN_MENU
-
-	mov ah, 4ch	
-	int 21h
-
-main endp
-
-LOGIN_MENU proc
+LOGIN proc
 	;clear screen
 	mov ax, 0003h
-    int 10h
+    	int 10h
 	
 	
 	;new line
@@ -126,16 +111,18 @@ LOGIN_MENU proc
 		int 21h
 	
 		jmp LOGIN_MENU
+		
+	CALL_OPTION1:
+		call signUp
+	CALL_OPTION2:
+		call login
+	CALL_OPTION3:
+		call ENDPROGRAM
 	ret
-LOGIN_MENU endp
+LOGIN endp
 
 
-CALL_OPTION1:
-	call signUp
-CALL_OPTION2:
-	call login
-CALL_OPTION3:
-	call exit
+
 	
 signUp proc
 		;new line
@@ -172,7 +159,7 @@ signUp proc
 		LEA DX, NL 
 		INT 21H
 		
-		call LOGIN_MENU
+		call LOGIN
 		ret
 signUp endp
 
@@ -239,23 +226,15 @@ login proc
 		lea dx, incorrectCredentials
 		int 21h
 		
-		call LOGIN_MENU
+		call LOGIN
 		ret
 		
 	success:
 		mov ah, 09h
 		lea dx, logSuccess
 		int 21h
-
-
+		
+		CALL HOMAINMENU
+		
 	ret
 login endp 
-
-exit proc
-
-	mov ah, 4ch
-	int 21h
-	
-exit endp
-
-end main
