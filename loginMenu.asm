@@ -19,6 +19,8 @@
 	
 	prompt db 			'                          Enter Your Choice: $'
 	choice db ?
+	;invalid choice
+	unavailable_choice db "                  Choice unavailable. Please Enter Again. ","$"
 	
 	;sign up
 	promptSign db 		'                        Enter New User Name: $'
@@ -28,9 +30,6 @@
 	promptLog db 		'                           Enter User Name: $'
 	promptpasswrd db 	'                            Enter Password: $' 
 	
-	
-	
-	
 	;acc variable
 	newUsrname db 31,?, 31 dup ("$")
 	newPasswrd db 31,?, 31 dup ("$")
@@ -38,7 +37,7 @@
 	signSuccess db "                       Successfully Registered $"
 	logSuccess db "                        Successfully logged in $"
 	
-	;testacc1
+	;acc1
 	loginUserName db 31, ?, 31 dup ("$")
 	valid_username db 0
 	loginPassword db 31, ?, 31 dup ("$")
@@ -112,8 +111,22 @@ LOGIN_MENU proc
 	cmp al, "3"
 	je CALL_OPTION3
 	
-	ret
+	jmp choice_error
 	
+	choice_error:
+		mov ah, 09h
+		lea dx, NL
+		int 21h
+	
+		mov ah, 09h
+		lea dx, unavailable_choice
+		int 21h
+			
+		mov ah,08h
+		int 21h
+	
+		jmp LOGIN_MENU
+	ret
 LOGIN_MENU endp
 
 
