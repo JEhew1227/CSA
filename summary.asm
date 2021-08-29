@@ -15,17 +15,21 @@
 	MSG12 DB "|===========================================================|$"
 	MSG13 DB "	Thank you for the purchase! See you again!	         $"
     n_line DB 0AH,0DH,"$"
+    ;productchosen
+    ;quantity
+    ;subtotal
+    ;total
 
 .code
 main proc
 	mov ax, @data
 	mov ds, ax
-
-    ;CLEAR SCREEN
-    mov ax, 0003H
-    int 10H
+    
+    Title:
+        ;CLEAR SCREEN
+        mov ax, 0003H
+        int 10H
 	
-    Summary:
         mov AH,09H
         lea DX,MSG1
         int 21H
@@ -66,8 +70,13 @@ main proc
         MOV AH,9
         INT 21H 
 
+    DisplayProd:
         mov AH,09H
         lea DX,MSG6
+        int 21H
+
+        mov ah,09H
+        lea dx,;product choosen
         int 21H
 
         LEA DX,n_line
@@ -78,10 +87,17 @@ main proc
         lea DX,MSG7
         int 21H
 
+        mov ah,09H
+        lea dx,;quantity
+        int 21H
+
         LEA DX,n_line
         MOV AH,9
         INT 21H 
 
+        jmp DisplayProd
+
+    SubTotalnTotal:
         mov AH,09H
         lea DX,MSG8
         int 21H
@@ -92,6 +108,10 @@ main proc
 
         mov AH,09H
         lea DX,MSG9
+        int 21H
+
+        mov ah,09H
+        lea dx,;subtotal
         int 21H
 
         LEA DX,n_line
@@ -108,6 +128,10 @@ main proc
 
         mov AH,09H
         lea DX,MSG11
+        int 21H
+
+        mov ah,09H
+        lea dx,;total
         int 21H
 
         LEA DX,n_line
