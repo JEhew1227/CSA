@@ -1,11 +1,13 @@
 .model small
 .stack 100
 .data
-	MSG1 DB "|===========================================================|$"
-	MSG2 DB "|	                      Summary  			    |$"
-	MSG3 DB "|-----------------------------------------------------------|$"
-	MSG4 DB "|	                Products You Purchased  	    |$"
-	MSG5 DB "|===========================================================|$"
+summaryT DB 10,13, "|===========================================================|"
+	     DB 10,13,  "|	                      Summary  			    |"
+	     DB 10,13, "|-----------------------------------------------------------|"
+	     DB 10,13, "|	                Products You Purchased  	    |"
+	     DB 10,13, "|===========================================================|$"
+
+ ;----------------------------------------------------------------------------------------        
 	MSG6 DB "|Product               Quantity                Price	    |$" 
 	MSG8 DB "|-----------------------------------------------------------|$"
 	MSG9 DB "|SubTotal : $"
@@ -21,49 +23,17 @@
     total db 'RM 15$'
 
 .code
-Summary proc
+Main proc
 	mov ax, @data
 	mov ds, ax
-    
-    Head:
+
+    ;start
         ;CLEAR SCREEN
         mov ax, 0003H
         int 10H
 	
         mov AH,09H
-        lea DX,MSG1
-        int 21H
-        
-        LEA DX,n_line
-        MOV AH,9
-        INT 21H 
-        
-        mov AH,09H
-        lea DX,MSG2
-        int 21H
-
-        LEA DX,n_line
-        MOV AH,9
-        INT 21H 
-        
-        mov AH,09H
-        lea DX,MSG3
-        int 21H
-        
-        LEA DX,n_line
-        MOV AH,9
-        INT 21H 
-
-        mov AH,09H
-        lea DX,MSG4
-        int 21H
-        
-        LEA DX,n_line
-        MOV AH,9
-        INT 21H 
-        
-        mov AH,09H
-        lea DX,MSG5
+        lea DX,summaryT
         int 21H
 
         LEA DX,n_line
@@ -95,7 +65,7 @@ Summary proc
         MOV AH,9
         INT 21H 
 
-    SubTotalnTotal:
+    ;SubTotalnTotal
         mov AH,09H
         lea DX,MSG8
         int 21H
@@ -154,4 +124,5 @@ Summary proc
 	
 	mov ah, 4CH
 	int 21h
-Summary endp	
+Main endp	
+end main
