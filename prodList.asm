@@ -326,34 +326,6 @@ main proc
 	mov AH,09H
     lea DX,new_line
     int 21H
-    
-    	mov AH,09H
-	lea DX,new_line
-	int 21H
-	
-	mov bx, 0
-	mov bl, list_offset
-	mov cx, leaf_lettuce_len
-	lea si, leaf_lettuce
-	call AddItemToList
-	
-	mov AH,09H
-	lea DX,list
-	int 21H
-
-	mov AH,09H
-	lea DX,new_line
-	int 21H
-
-	mov bx, 0
-	mov bl, list_offset
-	mov cx, arugula_lettuce_len
-	lea si, arugula_lettuce
-	call AddItemToList
-
-	mov AH,09H
-	lea DX,list
-	int 21H
 	
 	jmp EndProgram
 	
