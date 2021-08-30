@@ -6,6 +6,12 @@
 	list db 250 dup ("$")
 	list_offset db 0
 	
+	leaf_lettuce db "leaf lettuce$"
+	leaf_lettuce_len equ ($-leaf_lettuce)
+	
+	argula_lettuce db "argula lettuce$"
+	argula_lettuce_len equ ($-argula_lettuce)
+	
 	red_carrot db "red carrot$"
 	red_carrot_len equ ($-red_carrot)
 	
