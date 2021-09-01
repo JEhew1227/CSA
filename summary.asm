@@ -15,15 +15,15 @@ summaryT DB 10,13, "|===========================================================
 	MSG11 DB "|Total : $"
 	MSG12 DB "|===========================================================|$"
 	MSG13 DB "	Thank you for the purchase! See you again!	         $"
-    n_line DB 0AH,0DH,"$"
-    pName db '  Corn      $'
-    quantity db '              4      $'
-    price db '              RM 3 $'
-    subtotal db 'RM 12 $'
-    total db 'RM 15$'
+    NL DB 0AH,0DH,"$"
+    prodName dw offset
+    QUANTITY  db ?
+    SUBTOTAL db ?
+    DISPLAY_TOTAL db ?
+    
 
 .code
-Main proc
+summary proc
 	mov ax, @data
 	mov ds, ax
 
@@ -36,41 +36,46 @@ Main proc
         lea DX,summaryT
         int 21H
 
-        LEA DX,n_line
+        LEA DX,NL
         MOV AH,9
         INT 21H 
 
-    ;DisplayProd
         mov AH,09H
         lea DX,MSG6
         int 21H
 
-        LEA DX,n_line
+        LEA DX,NL
         MOV AH,9
         INT 21H 
 
+    ;DisplayProd
+    dloop_start:
         mov ah,09H
-        lea dx,pName
+        lea dx,prodName
         int 21H
 
         mov ah,09H
-        lea dx,quantity
+        lea dx,QUANTITY
         int 21H
 
         mov ah,09H
         lea dx,price
         int 21H
 
-        LEA DX,n_line
+        LEA DX,NL
         MOV AH,9
         INT 21H 
 
+        loop dloop_start
+        jmp show_subtotal
+
     ;SubTotalnTotal
+    show_subtotal:
         mov AH,09H
         lea DX,MSG8
         int 21H
 
-        LEA DX,n_line
+        LEA DX,NL
         MOV AH,9
         INT 21H 
 
@@ -79,10 +84,10 @@ Main proc
         int 21H
 
         mov ah,09H
-        lea dx,subtotal
+        lea dx,SUBTOTAL
         int 21H
 
-        LEA DX,n_line
+        LEA DX,NL
         MOV AH,9
         INT 21H 
 
@@ -90,7 +95,7 @@ Main proc
         lea DX,MSG10
         int 21H
 
-        LEA DX,n_line
+        LEA DX,NL
         MOV AH,9
         INT 21H 
 
@@ -99,10 +104,10 @@ Main proc
         int 21H
 
         mov ah,09H
-        lea dx,total
+        lea dx,DISPLAY_TOTAL
         int 21H
 
-        LEA DX,n_line
+        LEA DX,NL
         MOV AH,9
         INT 21H 
         
@@ -110,7 +115,7 @@ Main proc
         lea DX,MSG12
         int 21H
 
-        LEA DX,n_line
+        LEA DX,NL
         MOV AH,9
         INT 21H 
 
@@ -118,11 +123,10 @@ Main proc
         lea DX,MSG13
         int 21H
 
-        LEA DX,n_line
+        LEA DX,NL
         MOV AH,9
         INT 21H 
 	
 	mov ah, 4CH
 	int 21h
-Main endp	
-end main
+summary endp	
