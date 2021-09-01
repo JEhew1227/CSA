@@ -258,11 +258,41 @@ QUOTIENT                  DB ?
 REMAINDER                 DB ?
 DISPLAY_PM                DB "                      GO BACK TO PREVIOUS MENU $"
 ;--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-; PRODUCT LIST
+;PRODUCT LIST
 ;--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+	
 .CODE
-ConvertToNum proc
+
+; Color Codes (format: XY, X = background, Y = foreground)
+	; 0 = Black
+	; 1 = Blue
+	; 2 = Green
+	; 3 = Aqua
+	; 4 = Red
+	; 5 = Purple
+	; 6 = Yellow
+	; 7 = White
+	; 8 = Gray
+	; 9 = Light Blue
+	CHANGE_COLOR macro colorCode, STR
+		mov ah, 09h
+		mov cx, 1000h
+		mov al, 20h
+		mov bl, colorCode
+		int 10h
+
+		lea dx, STR
+		mov ah, 09h
+		int 21h
+
+		mov ah, 09h
+		mov bl, 07h
+		int 10h
+	endm
+	
+; str => num    ; parameters
+ConvertToNum proc 
+; si = "123"
     mov ax, 0
     mov dl, 10
 	mov [di], ax
@@ -360,7 +390,7 @@ HOMAINMENU PROC
 	 JMP HOMAINMENU
 
 HOMAINMENU ENDP
-
+	 
 ;ALL VEEGTABLE MENU AND SUB MENU
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ;VEGETABLE MENU
@@ -506,7 +536,7 @@ VEGE1M PROC
 	 ;MOV AH, 09H
 	 ;LEA DX, DISPLAY_PM
 	 ;INT 21H
-	 CHANGE_COLOR 06H,DISPLAY_PM
+	 CHANGE_COLOR 06H,DISPLAY_PM 
 
 	 ;MOV AH, 09H
 	 ;LEA DX, ANYKEY
@@ -549,7 +579,7 @@ VEGE2M PROC
 	 ;MOV AH, 09H
 	 ;LEA DX, MENUERROR
 	 ;INT 21H
-	 CHANGE_COLOR 04H,MENUERROR
+	 CHANGE_COLOR 04H,MENUERROR 
 
 	 ;MOV AH, 09H
 	 ;LEA DX, ANYKEY
@@ -576,7 +606,7 @@ VEGE2M PROC
 	 ;MOV AH, 09H
 	 ;LEA DX, DISPLAY_PM
 	 ;INT 21H
-	 CHANGE_COLOR 06H, DISPLAY_PM
+	 CHANGE_COLOR 06H, DISPLAY_PM 
 
 	 ;MOV AH, 09H
 	 ;LEA DX, ANYKEY
@@ -831,20 +861,28 @@ SELECTV1A1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1A
 	 CMP AL,2
-     JE  CONFIRMNO1A
+     JE  USERSAYNO1A
+	 JMP USUALFLOW1A
 
+USERSAYNO1A:
+     JMP CONFIRMNO1A
+
+USUALFLOW1A:
+     MOV AH, 01H
+     INT 21H
+	 
 	 CONFIRMYES1A:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, leaf_lettuce_len
      lea si, leaf_lettuce
 	 call AddItemToList
-
+	 
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -936,23 +974,28 @@ SELECTV2A1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1B
 	 CMP AL,2
-     JE  CONFIRMNO1B
+     JE  USERSAYNO1B
+     JMP USUALFLOW1B
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1B:
+     JMP CONFIRMNO1B
+
+USUALFLOW1B:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1B:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, arugula_lettuce_len
      lea si, arugula_lettuce
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1044,23 +1087,28 @@ SELECTV1B1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1C
 	 CMP AL,2
-     JE  CONFIRMNO1C
+     JE  USERSAYNO1C
+     JMP USUALFLOW1C
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1C:
+     JMP CONFIRMNO1C
+
+USUALFLOW1C:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1C:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, red_carrot_len
      lea si, red_carrot
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1153,23 +1201,28 @@ SELECTV2B1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1D
 	 CMP AL,2
-     JE  CONFIRMNO1D
+     JE  USERSAYNO1D
+     JMP USUALFLOW1D
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1D:
+     JMP CONFIRMNO1D
+
+USUALFLOW1D:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1D:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, mini_carrot_len
      lea si, mini_carrot
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1262,23 +1315,28 @@ SELECTV1C1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1E
 	 CMP AL,2
-     JE  CONFIRMNO1E
+     JE  USERSAYNO1E
+     JMP USUALFLOW1E
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1E:
+     JMP CONFIRMNO1E
+
+USUALFLOW1E:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1E:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, japanese_cucumber_len
      lea si, japanese_cucumber
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1371,23 +1429,28 @@ SELECTV2C1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1F
 	 CMP AL,2
-     JE  CONFIRMNO1F
+     JE  USERSAYNO1F
+     JMP USUALFLOW1F
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1F:
+     JMP CONFIRMNO1F
+
+USUALFLOW1F:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1F:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, cucumber_len
      lea si, cucumber
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1480,23 +1543,28 @@ SELECTV1D1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1G
 	 CMP AL,2
-     JE  CONFIRMNO1G
+     JE  USERSAYNO1G
+     JMP USUALFLOW1G
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1G:
+     JMP CONFIRMNO1G
+
+USUALFLOW1G:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1G:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, yellow_potatos_len
      lea si, yellow_potatos
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1588,23 +1656,28 @@ SELECTV2D1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1H
 	 CMP AL,2
-     JE  CONFIRMNO1H
+     JE  USERSAYNO1H
+     JMP USUALFLOW1H
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1H:
+     JMP CONFIRMNO1H
+
+USUALFLOW1H:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1H:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, russet_potato_len
      lea si, russet_potato
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1696,23 +1769,28 @@ SELECTV1E1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1I
 	 CMP AL,2
-     JE  CONFIRMNO1I
+     JE  USERSAYNO1I
+     JMP USUALFLOW1I
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1I:
+     JMP CONFIRMNO1I
+
+USUALFLOW1I:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1I:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, cameron_corn_len
      lea si, cameron_corn
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1804,23 +1882,28 @@ SELECTV2E1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1J
 	 CMP AL,2
-     JE  CONFIRMNO1J
+     JE  USERSAYNO1J
+     JMP USUALFLOW1J
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1J:
+     JMP CONFIRMNO1J
+
+USUALFLOW1J:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1J:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, dent_corn_len
      lea si, dent_corn
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2354,20 +2437,28 @@ SELECTF1A1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES2A
 	 CMP AL,2
-     JE  CONFIRMNO2A
+     JE  USERSAYNO2A
+     JMP USUALFLOW2A
+
+USERSAYNO2A:
+     JMP CONFIRMNO2A
+
+USUALFLOW2A:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2A:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, fuji_apple_len
      lea si, fuji_apple
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2379,7 +2470,7 @@ SELECTF1A1 PROC
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
-
+ 
 	 MOV AX, FUJIPRICE
 	 MUL QUANTITY
 	 MOV DX, TOTAL
@@ -2459,23 +2550,28 @@ SELECTF2A1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES2B
 	 CMP AL,2
-     JE  CONFIRMNO2B
+     JE  USERSAYNO2B
+     JMP USUALFLOW2B
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO2B:
+     JMP CONFIRMNO2B
+
+USUALFLOW2B:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2B:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, pink_lady_apple_len
 	 lea si, pink_lady_apple
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2567,23 +2663,31 @@ SELECTF1B1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES2C
 	 CMP AL,2
-     JE  CONFIRMNO2C
+     JE  USERSAYNO2C
+     JMP USUALFLOW2C
+
+USERSAYNO2C:
+     JMP CONFIRMNO2C
+
+USUALFLOW2C:
+     MOV AH, 01H
+     INT 21H
 
 	 MOV AH, 01H
 	 INT 21H
 
 	 CONFIRMYES2C:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, seville_orange_len
 	 lea si, seville_orange
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2676,23 +2780,28 @@ SELECTF2B1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES2D
 	 CMP AL,2
-     JE  CONFIRMNO2D
+     JE  USERSAYNO2D
+     JMP USUALFLOW2D
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO2D:
+     JMP CONFIRMNO2D
+
+USUALFLOW2D:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2D:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, blood_orange_len
 	 lea si, blood_orange
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2785,23 +2894,28 @@ SELECTF1C1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES2E
 	 CMP AL,2
-     JE  CONFIRMNO2E
+     JE  USERSAYNO2E
+     JMP USUALFLOW2E
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO2E:
+     JMP CONFIRMNO2E
+
+USUALFLOW2E:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2E:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, alphonso_mango_len
 	 lea si, alphonso_mango
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2831,7 +2945,7 @@ SELECTF1C1 PROC
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
-
+ 
 	 ;MOV AH, 09H
 	 ;LEA DX, ANYKEY
 	 ;INT 21H
@@ -2894,23 +3008,28 @@ SELECTF2C1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES2F
 	 CMP AL,2
-     JE  CONFIRMNO2F
+     JE  USERSAYNO2F
+     JMP USUALFLOW2F
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO2F:
+     JMP CONFIRMNO2F
+
+USUALFLOW2F:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2F:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, francis_mango_len
 	 lea si, francis_mango
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2940,7 +3059,7 @@ SELECTF2C1 PROC
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
-
+ 
 	 ;MOV AH, 09H
 	 ;LEA DX, ANYKEY
 	 ;INT 21H
@@ -3003,23 +3122,28 @@ SELECTF1D1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES2G
 	 CMP AL,2
-     JE  CONFIRMNO2G
+     JE  USERSAYNO2G
+     JMP USUALFLOW2G
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO2G:
+     JMP CONFIRMNO2G
+
+USUALFLOW2G:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2G:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, red_watermelon_len
 	 lea si, red_watermelon
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -3049,7 +3173,7 @@ SELECTF1D1 PROC
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
-
+ 
 	 ;MOV AH, 09H
 	 ;LEA DX, ANYKEY
 	 ;INT 21H
@@ -3111,23 +3235,28 @@ SELECTF2D1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES2H
 	 CMP AL,2
-     JE  CONFIRMNO2H
+     JE  USERSAYNO2H
+     JMP USUALFLOW2H
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO2H:
+     JMP CONFIRMNO2H
+
+USUALFLOW2H:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2H:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, yellow_watermelon_len
 	 lea si, yellow_watermelon
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -3157,7 +3286,7 @@ SELECTF2D1 PROC
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
-
+ 
 	 ;MOV AH, 09H
 	 ;LEA DX, ANYKEY
 	 ;INT 21H
@@ -3217,25 +3346,30 @@ SELECTF1E1 PROC
 	 SUB AL,30H
 
 	 CMP AL,1
-	 JE  CONFIRMYES2I
-	 CMP AL,2
-     JE  CONFIRMNO2I
+     JE  CONFIRMYES2I
+     CMP AL,2
+     JE  USERSAYNO2I
+     JMP USUALFLOW2I
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO2I:
+     JMP CONFIRMNO2I
+
+USUALFLOW2I:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2I:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, galis_melon_len
 	 lea si, galis_melon
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -3265,7 +3399,7 @@ SELECTF1E1 PROC
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
-
+ 
 	 ;MOV AH, 09H
 	 ;LEA DX, ANYKEY
 	 ;INT 21H
@@ -3324,32 +3458,31 @@ SELECTF2E1 PROC
 	 INT 21H
 	 SUB AL,30H
 
-	 CMP AL,1
+     CMP AL,1
 	 JE  CONFIRMYES2J
-	 CMP AL,2
-     ;JE  CONFIRMNO2J
-     JE USERSAYNO
-     JMP USUALFLOW
+     CMP AL,2
+     JE  USERSAYNO2J
+     JMP USUALFLOW2J
 
-USERSAYNO:
-    jmp CONFIRMNO2J
+USERSAYNO2J:
+     JMP CONFIRMNO2J
 
-USUALFLOW:
-	 MOV AH, 01H
-	 INT 21H
+USUALFLOW2J:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2J:
-
+	 
 	 mov bx, 0
 	 mov bl, list_offset
 	 mov cx, golden_hm_len
 	 lea si, golden_hm
 	 call AddItemToList
-
+	
 	 mov AH,09H
      lea DX,list
      int 21H
-
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -3361,7 +3494,7 @@ USUALFLOW:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
-
+	 
 	 MOV AX, GOLDENHMPRICE
 	 MUL QUANTITY
 	 MOV DX, TOTAL
@@ -3379,7 +3512,7 @@ USUALFLOW:
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
-
+ 
 	 ;MOV AH, 09H
 	 ;LEA DX, ANYKEY
 	 ;INT 21H
@@ -3411,6 +3544,5 @@ USUALFLOW:
 	 JMP FM
 SELECTF2E1 ENDP
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 
 
