@@ -8,11 +8,11 @@
 			 db 0dh,0ah,"                               3.Exit            "
 			 db 0dh,0ah,"                       --------------------------$"
 		 
-	logo 	 db 0dh,0ah," _     ____  ____  ____ ___  _ ____  ____  _____ ____  _      _  ____ "
-	     	 db 0dh,0ah,"/ \ /|/  _ \/  __\/  __\\  \///  _ \/  __\/  __//  _ \/ \  /|/ \/   _\"
-			 db 0dh,0ah,"| |_||| / \||  \/||  \/| \  / | / \||  \/|| |  _| / \|| |\ ||| ||  /  "
-			 db 0dh,0ah,"| | ||| |-|||  __/|  __/ / /  | \_/||    /| |_//| |-||| | \||| ||  \_ "
-			 db 0dh,0ah,"\_/ \|\_/ \|\_/   \_/   /_/   \____/\_/\_\\____\\_/ \|\_/  \|\_/\____/$"
+	logo 	db 0dh,0ah, "       _  _   _   ___ _____   _____  ___  ___   _   _  _ ___ ___      "
+			db 0dh,0ah, "      | || | /_\ | _ \ _ \ \ / / _ \| _ \/ __| /_\ | \| |_ _/ __|     "
+			db 0dh,0ah, "      | __ |/ _ \|  _/  _/\ V / (_) |   / (_ |/ _ \| .` || | (__      "
+			db 0dh,0ah, "      |_||_/_/ \_\_| |_|   |_| \___/|_|_\\___/_/ \_\_|\_|___\___|     "
+			db "$"
 	
 	prompt db 			'                          Enter Your Choice: $'
 	choice db ?
@@ -20,8 +20,8 @@
 	unavailable_choice db "                  Choice unavailable. Please Enter Again. ","$"
 	
 	;sign up
-	promptSign db 		'                         Enter New User Name: $'
-	promptNewPasswrd db '                          Enter New Password: $'
+	promptSign db 		'                        Enter New User Name: $'
+	promptNewPasswrd db '                        Enter New Password : $'
 	
 	;login
 	promptLog db 		'                           Enter User Name: $'
@@ -31,8 +31,8 @@
 	newUsrname db 31,?, 31 dup ("$")
 	newPasswrd db 31,?, 31 dup ("$")
 	
-	
-	logSuccess db "              Successfully logged in.Press Enter To Continue$"
+	signSuccess db "                            Successfully Registered $"
+	logSuccess db "                Successfully logged in. Press Enter To Continue$"
 	
 	;acc1
 	loginUserName db 31, ?, 31 dup ("$")
@@ -40,17 +40,37 @@
 	loginPassword db 31, ?, 31 dup ("$")
 	valid_password db 0
 	
+	;login successful
+	
 	;boolean 
 	VALID_SIGNUP_USER db 0
 	
 	;incorrect username
-	incorrectCredentials db "                         Incorrect Credentials $"
+	incorrectCredentials db "                            User not found $"
 	
-	;SignUp Successful
-	signSuccess db "                        Successfully Registered $"
 	;signError
 	signError db "                  Please Enter Something into the Field$"
+	
+	
+	
 .code 
+
+COLOR macro CODE, STR
+		mov ah, 09h
+		mov cx, 1000h
+		mov al, 20h
+		mov bl, CODE
+		int 10h
+
+		lea dx, STR
+		mov ah, 09h
+		int 21h
+
+		mov ah, 09h
+		mov bl, 07h
+		int 10h
+endm
+
 LOGIN_MENU proc
 	;clear screen
 	mov ax, 0003h
@@ -63,9 +83,7 @@ LOGIN_MENU proc
 	INT 21H
 	
 	;display logo
-	mov ah, 09h
-	lea dx, logo
-	int 21h
+	COLOR 03H, logo
 	
 	;double new line
 	MOV AH, 09H	
@@ -75,9 +93,10 @@ LOGIN_MENU proc
 	LEA DX, NL_1 
 	INT 21H
 
-	mov ah, 09h
-	lea dx, line;
-	int 21h
+	;mov ah, 09h
+	;lea dx, line
+	;int 21h
+	COLOR 09H, line
 	
 	MOV AH, 09H	
 	LEA DX, NL_1 
@@ -107,9 +126,10 @@ LOGIN_MENU proc
 		lea dx, NL_1
 		int 21h
 	
-		mov ah, 09h
-		lea dx, unavailable_choice
-		int 21h
+		;mov ah, 09h
+		;lea dx, unavailable_choice
+		;int 21h
+		COLOR 04H, unavailable_choice
 			
 		mov ah,08h
 		int 21h
@@ -140,8 +160,6 @@ signUp proc
 		mov ah, 0AH
 		lea dx, newUsrname
 		int 21h
-		
-		
 		
 		;new line
 		MOV AH, 09H	
@@ -185,9 +203,11 @@ signUp proc
 				jmp VALIDATE_SIGNPASS
 		
 		SUCCESS1:
-			mov ah, 09h
-			lea dx, signSuccess
-			int 21h
+			;mov ah, 09h
+			;lea dx, signSuccess
+			;int 21h
+			COLOR 02H, logSuccess
+			
 			
 			mov ah, 0AH
 			int 21h
@@ -195,9 +215,11 @@ signUp proc
 			call  LOGIN_MENU
 		
 		SIGN_ERROR:
-			mov ah, 09h
-			lea dx, signError
-			int 21h
+			;mov ah, 09h
+			;lea dx, signError
+			;int 21h
+			COLOR 04H, signError
+			
 			
 			call signUp
 			
@@ -266,21 +288,19 @@ login proc
 
 	
 	login_error:
-		mov ah, 09h
-		lea dx, incorrectCredentials
-		int 21h
+		;mov ah, 09h
+		;lea dx, incorrectCredentials
+		;int 21h
+		COLOR 04H, incorrectCredentials
 		
-		mov ah, 0AH
-		int 21h
-		
-		call LOGIN_MENU
-		
+		call LOGIN
 		ret
 		
 	success:
-		mov ah, 09h
-		lea dx, logSuccess
-		int 21h
+		;mov ah, 09h
+		;lea dx, logSuccess
+		;int 21h
+		COLOR 02H, logSuccess
 		
 		mov ah, 0AH
 		int 21h
