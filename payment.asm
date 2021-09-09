@@ -69,9 +69,7 @@ USUALFLOW:
 		LEA DX,n_line
 		INT 21H
 		
-		MOV AH,09H
-		LEA DX,PaymentLogo
-		INT 21H
+		COLOR 06H,PaymentLogo
 		
 		MOV AH,09H
 		LEA DX,n_line
