@@ -16,16 +16,12 @@ summaryT DB 10,13, "|===========================================================
 	MSG6 DB "|Product               Price                Quantity	    |$" 
 	MSG8 DB "|-----------------------------------------------------------|$"
 	MSG9 DB "|SubTotal : $"
-	MSG10 DB "|-----------------------------------------------------------|$"
-	MSG11 DB "|Total : $"
-	MSG12 DB "|===========================================================|$"
-	MSG13 DB "	Thank you for the purchase! See you again!	         $"
+    MSG10 DB "|Service Tax: $"
+	MSG11 DB "|-----------------------------------------------------------|$"
+	MSG12 DB "|Total : $"
+	MSG13 DB "|===========================================================|$"
+	MSG14 DB "	Thank you for the purchase! See you again!	         $"
     NL DB 0AH,0DH,"$"
-    ;prodName dw offset
-    ;QUANTITY  db ?
-    ;SUBTOTAL db ?
-    ;DISPLAY_TOTAL db ?
-    
 
 .code
 summary proc
@@ -82,12 +78,24 @@ summary proc
         lea DX,MSG10
         int 21H
 
+        MOV AH,09H
+        LEA DX,servicetax_total
+        INT 21H
+
         LEA DX,NL
         MOV AH,9
         INT 21H 
 
         mov AH,09H
         lea DX,MSG11
+        int 21H
+
+        LEA DX,NL
+        MOV AH,9
+        INT 21H 
+
+        mov AH,09H
+        lea DX,MSG12
         int 21H
 
         MOV AH,09H
@@ -99,7 +107,7 @@ summary proc
         INT 21H 
         
         mov AH,09H
-        lea DX,MSG12
+        lea DX,MSG13
         int 21H
 
         LEA DX,NL
@@ -107,7 +115,7 @@ summary proc
         INT 21H 
 
         mov AH,09H
-        lea DX,MSG13
+        lea DX,MSG14
         int 21H
 
         LEA DX,NL
