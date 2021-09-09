@@ -13,7 +13,7 @@ summaryT DB 10,13, "|===========================================================
 	     DB 10,13, "|===========================================================|$"
 
  ;----------------------------------------------------------------------------------------        
-	MSG6 DB "|Product               Quantity                Price	    |$" 
+	MSG6 DB "|Product               Price                Quantity	    |$" 
 	MSG8 DB "|-----------------------------------------------------------|$"
 	MSG9 DB "|SubTotal : $"
 	MSG10 DB "|-----------------------------------------------------------|$"
@@ -28,32 +28,13 @@ summaryT DB 10,13, "|===========================================================
     
 
 .code
-COLOR macro CODE, STR
-		mov ah, 09h
-		mov cx, 1000h
-		mov al, 20h
-		mov bl, CODE
-		int 10h
-
-		lea dx, STR
-		mov ah, 09h
-		int 21h
-
-		mov ah, 09h
-		mov bl, 07h
-		int 10h
-endm
-
-main proc
-	mov ax, @data
-	mov ds, ax
-
+summary proc
     ;start
         ;CLEAR SCREEN
         mov ax, 0003H
         int 10H
 
-        COLOR 05H, SummaryLogo
+        CHANGE_COLOR 05H, SummaryLogo
 	
         mov AH,09H
         lea DX,summaryT
@@ -71,29 +52,12 @@ main proc
         MOV AH,9
         INT 21H 
 
-    ;DisplayProd
-    dloop_start:
-        ;mov ah,09H
-        ;lea dx,prodName
-        ;int 21H
+        mov ah,09H
+        lea dx,list
+        int 21H
 
-        ;mov ah,09H
-        ;lea dx,QUANTITY
-        ;int 21H
+        ;QUANTITY
 
-        ;mov ah,09H
-        ;lea dx,price
-        ;int 21H
-
-        ;LEA DX,NL
-        ;MOV AH,9
-        ;INT 21H 
-
-        ;loop dloop_start
-        ;jmp show_subtotal
-
-    ;SubTotalnTotal
-    show_subtotal:
         mov AH,09H
         lea DX,MSG8
         int 21H
@@ -106,9 +70,9 @@ main proc
         lea DX,MSG9
         int 21H
 
-        ;mov ah,09H
-        ;lea dx,SUBTOTAL
-        ;int 21H
+        MOV AH,09H
+        LEA DX,TOTAL_NO_SST
+        INT 21H
 
         LEA DX,NL
         MOV AH,9
@@ -126,9 +90,9 @@ main proc
         lea DX,MSG11
         int 21H
 
-        ;mov ah,09H
-        ;lea dx,DISPLAY_TOTAL
-        ;int 21H
+        MOV AH,09H
+        LEA DX,GRAND_TOTAL
+        INT 21H
 
         LEA DX,NL
         MOV AH,9
@@ -152,5 +116,4 @@ main proc
 	
 	mov ah, 4CH
 	int 21h
-main endp	
-end main
+summary endp	
