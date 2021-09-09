@@ -1,13 +1,13 @@
 .model small
 .stack 100
 .data
-SummaryLogo 	DB 10,13, "      ___ _   _ __  __ __  __   _   _____   __    "
+RecieptLogo 	DB 10,13, "      ___ _   _ __  __ __  __   _   _____   __    "
 				DB 10,13, "     / __| | | |  \/  |  \/  | /_\ | _ \ \ / /    "
 				DB 10,13, "     \__ \ |_| | |\/| | |\/| |/ _ \|   /\ V /     "
 				DB 10,13, "     |___/\___/|_|  |_|_|  |_/_/ \_\_|_\ |_|     $"
 
-summaryT DB 10,13, "|===========================================================|"
-	     DB 10,13,  "|	                      Summary  			    |"
+ReceiptT DB 10,13, "|===========================================================|"
+	     DB 10,13,  "|	                      Receipt  			    |"
 	     DB 10,13, "|-----------------------------------------------------------|"
 	     DB 10,13, "|	                Products You Purchased  	    |"
 	     DB 10,13, "|===========================================================|$"
@@ -24,16 +24,16 @@ summaryT DB 10,13, "|===========================================================
     NL DB 0AH,0DH,"$"
 
 .code
-summary proc
+receipt proc
     ;start
         ;CLEAR SCREEN
         mov ax, 0003H
         int 10H
 
-        CHANGE_COLOR 05H, SummaryLogo
+        CHANGE_COLOR 05H, ReceiptLogo
 	
         mov AH,09H
-        lea DX,summaryT
+        lea DX,receiptT
         int 21H
 
         LEA DX,NL
@@ -124,4 +124,4 @@ summary proc
 	
 	mov ah, 4CH
 	int 21h
-summary endp	
+receipt endp	
