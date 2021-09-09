@@ -5,26 +5,26 @@
     CHANGE DB "          Change:RM$"
     NO DB "n" ;TO STORE DECISION NO
     YES DB "y" ;TO STORE DECISION YES
-    AMOUNT_PAY DB ? ;AMOUNT TO PAY
-    AMOUNT_USER_PAY DB ? ;AMOUNT USER INPUT
-	servicetax DB 6
+    AMOUNT_PAY DW ? ;AMOUNT TO PAY
+    AMOUNT_USER_PAY DW ? ;AMOUNT USER INPUT
+	AMOUNT_USER_PAY_BUFFER DB 10,?,12 dup("$")
+	servicetax DW 5
     HUNDRED DW 100	
-	;PAY_TOTAL DB 20
+    servicetax_total DW ?
 	
 PAYMENU     DB 10,13, "          *=================================================*"
             DB 10,13, "          *                     PAYMENT                     *"
             DB 10,13, "          *=================================================*"
             DB 10,13, "          * Product choosen       Price         Quantity    *"
 			DB 10,13, "          *=================================================*$"
-LINE1       DB 10,13, "          *-------------------------------------------------*$"
 LINE2       DB 10,13, "          *=================================================*$"
 TOTAL_NO_SST    DB "          Total(without SST) =RM$"
-SERVICE_TAX DB "          Service tax(SST 6%) =RM$"
+SERVICE_TAX DB "          Service tax(SST 5%) =RM$"
 GRAND_TOTAL      DB "          Total =RM$"
 
-    STR1 DB "Insufficent payment! Please enter the correct amount!$"
-    STR2 DB "Payment completed$"
-    STR3 DB "Preparing receipt....$"
+    STR1 DB "          Insufficent payment! Please enter the correct amount!$"
+    STR2 DB "          Payment completed$"
+    STR3 DB "          Preparing receipt....$"
       
 .code
 payment proc
@@ -90,6 +90,9 @@ USUALFLOW:
         LEA DX,TOTAL_NO_SST
         INT 21H
 		
+		LEA SI, TOTAL
+	    CALL ConvertToStr
+		
 		MOV AH,09H
 		LEA DX,n_line
 		INT 21H
@@ -98,12 +101,12 @@ USUALFLOW:
         LEA DX,SERVICE_TAX
         INT 21H
 		
-        ;mov ah, 02H
-        ;mov ax, PAY_TOTAL
-        ;mov dl, servicetax
-        ;mul dl
-		;div HUNDRED
-        ;int 21h
+        mov ax, TOTAL
+        mul servicetax
+		div HUNDRED
+		mov servicetax_total, ax
+		lea si, servicetax_total
+		call ConvertToStr
 		
 		MOV AH,09H
 		LEA DX,n_line
@@ -113,14 +116,11 @@ USUALFLOW:
         LEA DX,GRAND_TOTAL
         INT 21H
 		
-		MOV AH,09H
-		LEA DX,n_line
-		INT 21H
-		
-		;mov ah, 02H
-        ;add dx,TOTAL
-        ;mov dl,servicetax
-        ;int 21h
+        mov ax,TOTAL
+		add ax,servicetax_total
+		mov AMOUNT_PAY, ax
+		lea si, AMOUNT_PAY
+		call ConvertToStr
 		
 		MOV AH,09H
 		LEA DX,n_line
@@ -129,10 +129,6 @@ USUALFLOW:
 		MOV AH,09H
         LEA DX,LINE2
         INT 21H
-        
-		;MOV AH,09H
-		;LEA DX,AMOUNT_PAY
-		;INT 21H
 		
 		MOV AH,09H
 		LEA DX,n_line
@@ -142,27 +138,26 @@ USUALFLOW:
         LEA DX,USER_INPUT_PAY
         INT 21H
 		
+		LEA DX, AMOUNT_USER_PAY_BUFFER
+		MOV AH ,0AH
+        INT 21H
+        LEA SI, AMOUNT_USER_PAY_BUFFER + 2
+		LEA DI, AMOUNT_USER_PAY
+		CALL ConvertToNum
+		
 		MOV AH,09H
 		LEA DX,n_line
 		INT 21H
-		
-        ;MOV AH,01H
-        ;INT 21H
-        ;MOV AMOUNT_USER_PAY,AL
+
+		MOV AH,09H
+		MOV DX,AMOUNT_USER_PAY
+		sub DX,AMOUNT_PAY
 		
 		MOV AH,09H
 		LEA DX,n_line
 		INT 21H
-		
-        payment endp
-		call ENDPROGRAM
-		;MOV AH,09H
-		;MOV DL,AMOUNT_USER_PAY
-		;sub DL,AMOUNT_PAY
-		
-		INT 21H
-        
-        CMP DL,0  
+	
+        CMP DX,0  
         JGE L3          ; if change > 0 , continue to receipt
         JMP L4          ; if change < 0 , ask user to enter again
         
@@ -171,22 +166,35 @@ USUALFLOW:
         JMP HOMAINMENU
         
     L3: 
+	
+	    MOV AH,09H
+		LEA DX,n_line
+		INT 21H
+		
         MOV AH,09H
         LEA DX,STR2
         INT 21H
         
+		MOV AH,09H
+		LEA DX,n_line
+		INT 21H
+		
         MOV AH,09H
         LEA DX,STR3
         INT 21H
         
-		
+		call ENDPROGRAM
         ;JMP SUMMARY
         
     L4:
+	    MOV AH,09H
+		LEA DX,n_line
+		INT 21H
+		
         MOV AH,09H
         LEA DX,STR1
         INT 21H
         
         JMP L1
         
-;payment endp
+payment endp
