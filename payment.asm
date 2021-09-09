@@ -12,6 +12,11 @@
     HUNDRED DW 100	
     servicetax_total DW ?
 	
+PaymentLogo 	DB 10,13, "                    ___  ___   ____  __ ___ _  _ _____     "
+				DB 10,13, "                   | _ \/_\ \ / /  \/  | __| \| |_   _|    "
+				DB 10,13, "                   |  _/ _ \ V /| |\/| | _|| .` | | |      "
+				DB 10,13, "                   |_|/_/ \_\_| |_|  |_|___|_|\_| |_|     $"
+				
 PAYMENU     DB 10,13, "          *=================================================*"
             DB 10,13, "          *                     PAYMENT                     *"
             DB 10,13, "          *=================================================*"
@@ -60,6 +65,14 @@ USUALFLOW:
     
     L1:           ;DISPLAY PRODUCT, SUBTOTAL AND SERVICE TAX THEN SHOW AMOUNT TO PAY
 	    
+		MOV AH,09H
+		LEA DX,n_line
+		INT 21H
+		
+		MOV AH,09H
+		LEA DX,PaymentLogo
+		INT 21H
+		
 		MOV AH,09H
 		LEA DX,n_line
 		INT 21H
@@ -152,10 +165,6 @@ USUALFLOW:
 		MOV AH,09H
 		MOV DX,AMOUNT_USER_PAY
 		sub DX,AMOUNT_PAY
-		
-		MOV AH,09H
-		LEA DX,n_line
-		INT 21H
 	
         CMP DX,0  
         JGE L3          ; if change > 0 , continue to receipt
@@ -183,8 +192,8 @@ USUALFLOW:
         LEA DX,STR3
         INT 21H
         
-		call ENDPROGRAM
-        ;JMP SUMMARY
+        call receipt
+		JMP HOMAINMENU
         
     L4:
 	    MOV AH,09H
