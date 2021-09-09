@@ -28,8 +28,7 @@ MAINMENU  DB 10,13, "                                                           
 
 ;Error Message
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------
-MENUERROR     DB "                                                  ERROR ! PLEASE ENTER AGAIN ! $"
-SUBMENUERROR  DB "                  ERROR ! PLEASE ENTER AGAIN ! $"
+MENUERROR     DB 10,13,"                ERROR ! PLEASE ENTER AGAIN ! $"
 ANYKEY        DB 10,13,"                      PLEASE CONTINUE ...$"
 NL			  DB 0DH, 0AH, '$'
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -82,7 +81,7 @@ FRUITM    DB 10,13, "                                                           
           DB 10,13, "       |  6.      Back                                 |   "
 	      DB 10,13, "       *===============================================*   "
           DB 10,13, "              Please Enter Your Choice (1-6) : $"
-		  
+
 ;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ;SUB VEGETABLE MENU
 ;VEGETABLE
@@ -98,7 +97,7 @@ VEGE1     DB 10,13, "      *====================================================
 	      DB 10,13, "      |--------------------------------------------------------------------|   "
 	      DB 10,13, "      |  3.      Back                                                      |   "
 	      DB 10,13, "      *====================================================================*   "
-          DB 10,13, "              Please Enter Your Choice (1-3)    : $"
+          DB 10,13, "                 Please Enter Your Choice (1-3) : $"
 
 VEGE2     DB 10,13, "      *====================================================================*   "
 	      DB 10,13, "      |                           Carrots                                  |   "
@@ -110,7 +109,7 @@ VEGE2     DB 10,13, "      *====================================================
 	      DB 10,13, "      |--------------------------------------------------------------------|   "
 	      DB 10,13, "      |  3.      Back                                                      |   "
 	      DB 10,13, "      *====================================================================*   "
-          DB 10,13, "              Please Enter Your Choice (1-3)    : $"
+          DB 10,13, "                 Please Enter Your Choice (1-3) : $"
 
 VEGE3     DB 10,13, "      *====================================================================*   "
 	      DB 10,13, "      |                            Cucumber                                |   "
@@ -122,7 +121,7 @@ VEGE3     DB 10,13, "      *====================================================
 	      DB 10,13, "      |--------------------------------------------------------------------|   "
 	      DB 10,13, "      |  3.      Back                                                      |   "
 	      DB 10,13, "      *====================================================================*   "
-          DB 10,13, "               Please Enter Your Choice (1-3)    : $"
+          DB 10,13, "                  Please Enter Your Choice (1-3) : $"
 
 
 VEGE4     DB 10,13, "      *====================================================================*   "
@@ -135,7 +134,7 @@ VEGE4     DB 10,13, "      *====================================================
 	      DB 10,13, "      |--------------------------------------------------------------------|   "
 	      DB 10,13, "      |  3.      Back                                                      |   "
 	      DB 10,13, "      *====================================================================*   "
-          DB 10,13, "               Please Enter Your Choice (1-3)     : $"
+          DB 10,13, "                  Please Enter Your Choice (1-3)  : $"
 
 
 VEGE5     DB 10,13, "      *====================================================================*   "
@@ -148,7 +147,7 @@ VEGE5     DB 10,13, "      *====================================================
 	      DB 10,13, "      |--------------------------------------------------------------------|   "
 	      DB 10,13, "      |  3.      Back                                                      |   "
 	      DB 10,13, "      *====================================================================*   "
-          DB 10,13, "               Please Enter Your Choice (1-3)     : $"
+          DB 10,13, "                  Please Enter Your Choice (1-3)  : $"
 
 FRUIT1    DB 10,13, "      *====================================================================*   "
           DB 10,13, "      |                              Apples                                |   "
@@ -160,7 +159,7 @@ FRUIT1    DB 10,13, "      *====================================================
 	      DB 10,13, "      |--------------------------------------------------------------------|   "
 	      DB 10,13, "      |  3.      Back                                                      |   "
 	      DB 10,13, "      *====================================================================*   "
-          DB 10,13, "               Please Enter Your Choice (1-3)   : $"
+          DB 10,13, "                  Please Enter Your Choice (1-3): $"
 
 
 FRUIT2    DB 10,13, "      *====================================================================*   "
@@ -174,7 +173,7 @@ FRUIT2    DB 10,13, "      *====================================================
 	      DB 10,13, "      |  3.      Back                                                      |   "
 	      DB 10,13, "      *====================================================================*   "
 
-          DB 10,13, "               Please Enter Your Choice (1-3)   : $"
+          DB 10,13, "                  Please Enter Your Choice (1-3): $"
 
 
 FRUIT3    DB 10,13, "      *====================================================================*   "
@@ -187,7 +186,7 @@ FRUIT3    DB 10,13, "      *====================================================
 	      DB 10,13, "      |--------------------------------------------------------------------|   "
 	      DB 10,13, "      |  3.      Back                                                      |   "
 	      DB 10,13, "      *====================================================================*   "
-          DB 10,13, "               Please Enter Your Choice (1-3)   : $"
+          DB 10,13, "                  Please Enter Your Choice (1-3): $"
 
 
 FRUIT4    DB 10,13, "      *=====================================================================*   "
@@ -201,7 +200,7 @@ FRUIT4    DB 10,13, "      *====================================================
 	      DB 10,13, "      |  3.      Back                                                       |   "
 	      DB 10,13, "      *=====================================================================*   "
 
-          DB 10,13, "               Please Enter Your Choice (1-3)   : $"
+          DB 10,13, "                  Please Enter Your Choice (1-3): $"
 
 
 FRUIT5    DB 10,13, "      *=====================================================================*   "
@@ -215,7 +214,7 @@ FRUIT5    DB 10,13, "      *====================================================
 	      DB 10,13, "      |  3.      Back                                                       |   "
 	      DB 10,13, "      *=====================================================================*   "
 
-          DB 10,13, "                Please Enter Your Choice (1-3)   : $"
+          DB 10,13, "                   Please Enter Your Choice (1-3): $"
 
 
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -257,76 +256,90 @@ DISPLAY_TOTAL             DB "  TOTAL                     : RM $"
 TEN                       DB 10
 QUOTIENT                  DB ?
 REMAINDER                 DB ?
-DISPLAY_PM                DB "                    GO BACK TO PREVIOUS MENU !$"
+DISPLAY_PM                DB "                      GO BACK TO PREVIOUS MENU $"
 ;--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+;PRODUCT LIST
+;--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
 .CODE
-COLOR macro CODE, STR
+
+; Color Codes (format: XY, X = background, Y = foreground)
+	; 0 = Black
+	; 1 = Blue
+	; 2 = Green
+	; 3 = Aqua
+	; 4 = Red
+	; 5 = Purple
+	; 6 = Yellow
+	; 7 = White
+	; 8 = Gray
+	; 9 = Light Blue
+	CHANGE_COLOR macro colorCode, STR
 		mov ah, 09h
 		mov cx, 1000h
 		mov al, 20h
-		mov bh, 0
-		mov bl, CODE
+		mov bl, colorCode
 		int 10h
 
 		lea dx, STR
 		mov ah, 09h
 		int 21h
 
-		mov bh, 0
 		mov ah, 09h
 		mov bl, 07h
 		int 10h
-endm
-	  
-CONVERTNUM proc 
+	endm
+	
+; str => num    ; parameters
+ConvertToNum proc 
+; si = "123"
     mov ax, 0
     mov dl, 10
 	mov [di], ax
 
-	STARTC:
-		mov dh, [si]
-		cmp dh, 0dh
-		je ENDC
-		sub dh, '0'
+StartConvert:
+    mov dh, [si]
+    cmp dh, 0dh
+    je EndConvert
+    sub dh, '0'
 
-		mov al, [di]
-		mul dl
+    mov al, [di]
+    mul dl
 
-		add al, dh
-		mov [di], al
-		inc si
-		jmp STARTC
+    add al, dh
+    mov [di], al
+    inc si
+    jmp StartConvert
 
-	ENDC:
-		ret
-CONVERTNUM endp
+EndConvert:
+    ret
+ConvertToNum endp
 
-CONVERTSTR proc 
+ConvertToStr proc ; si = convert de num
     mov ax, [si]
     mov bx, 10
     mov cx, 0
 
-	POPSTACK:
-		mov dx, 0
-		div bx
+PopulateStack:
+    mov dx, 0
+    div bx
 
-		push dx
-		inc cx
+    push dx
+    inc cx
 
-		cmp ax, 0
-		je DISSTACK
-		jmp POPSTACK
+    cmp ax, 0
+    je DisplayStack
+    jmp PopulateStack
 
-	DISSTACK:
-		pop dx
-		add dl, '0'
-		mov ah, 02h
-		int 21h
-		loop DISSTACK
-		ret
+DisplayStack:
+    pop dx
+    add dl, '0'
+    mov ah, 02h
+    int 21h
+    loop DisplayStack
+    ret
 
-CONVERTSTR endp
+ConvertToStr endp
 
 
 HOMAINMENU PROC
@@ -335,7 +348,10 @@ HOMAINMENU PROC
      MOV AX, 0003H
      INT 10H
 
-	 COLOR 03H, MAINMENU
+	 MOV AH, 09H
+	 LEA DX, MAINMENU
+	 INT 21H
+
 	 MAINMENUM:
 
 	 MOV AH, 01H
@@ -350,8 +366,8 @@ HOMAINMENU PROC
 	 JE  SELECTM1
 	 CMP AL,2
      JE  SELECTM2
-	 ;CMP AL,3
-	 ;JE  SELECTM3
+	 CMP AL,3
+	 JE  SELECTM3
 	 CMP AL,4
 	 CALL LOGIN_MENU
 
@@ -363,16 +379,18 @@ HOMAINMENU PROC
 	 SELECTM2:
 	 CALL FM
 
-     ;SELECTM3:
-     ;CALL PAYMENT
+     SELECTM3:
+     CALL Payment
 
 	 MENUERRORM:
-	 COLOR 0CH, MENUERROR
-	 
+	 ;MOV AH, 09H
+	 ;LEA DX, MENUERROR
+	 ;INT 21H
+	 CHANGE_COLOR 04H,MENUERROR
 	 JMP HOMAINMENU
 
 HOMAINMENU ENDP
-
+	 
 ;ALL VEEGTABLE MENU AND SUB MENU
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ;VEGETABLE MENU
@@ -382,7 +400,9 @@ VEGM	PROC
      MOV AX, 0003H
      INT 10H
 
-	 COLOR 02H, VEGEM
+	 MOV AH, 09H
+	 LEA DX, VEGEM
+	 INT 21H
 
 	 VEGEMMENU:
 
@@ -428,7 +448,10 @@ VEGM	PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
 	 MOV AH, 09H
 	 LEA DX, ANYKEY
@@ -440,11 +463,15 @@ VEGM	PROC
 	 JMP HOMAINMENU
 
 	 MENUERROR1:
-	 COLOR 0CH, MENUERROR
+	 ;MOV AH, 09H
+	 ;LEA DX, MENUERROR
+	 ;INT 21H
+	 CHANGE_COLOR 04H,MENUERROR
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -456,10 +483,7 @@ VEGM	ENDP
 
 VEGE1M PROC
 
-	 MOV AH, 09H
-	 LEA DX, NL
-	 INT 21H
-	 
+
 	 MOV AH, 09H
 	 LEA DX, VEGE1
 	 INT 21H
@@ -471,9 +495,9 @@ VEGE1M PROC
 	 SUB AL,30H
 
 	 CMP AL,0
-	 JLE  MENUERROR1A
+	 JL  MENUERROR1A
 	 CMP AL,4
-	 JGE  MENUERROR1A
+	 JG  MENUERROR1A
 	 CMP AL,1
 	 JE  SELECTV1A
 	 CMP AL,2
@@ -482,16 +506,15 @@ VEGE1M PROC
 	 JE  SELECTV3A
 
 	 MENUERROR1A:
-	 
-	 MOV AH, 09H
-	 LEA DX, NL
-	 INT 21H
-	 
-	 COLOR 0CH, SUBMENUERROR
-	 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, MENUERROR
+	 ;INT 21H
+	 CHANGE_COLOR 04H,MENUERROR
+
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H,ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -510,11 +533,15 @@ VEGE1M PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM 
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H,DISPLAY_PM 
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -526,10 +553,7 @@ VEGE1M ENDP
 
 VEGE2M PROC
 
-	 MOV AH, 09H
-	 LEA DX, NL
-	 INT 21H
-	 
+
 	 MOV AH, 09H
 	 LEA DX, VEGE2
 	 INT 21H
@@ -541,9 +565,9 @@ VEGE2M PROC
 	 SUB AL,30H
 
 	 CMP AL,0
-	 JLE  MENUERROR1B
+	 JL  MENUERROR1B
 	 CMP AL,4
-	 JGE  MENUERROR1B
+	 JG  MENUERROR1B
 	 CMP AL,1
 	 JE  SELECTV1B
 	 CMP AL,2
@@ -552,16 +576,15 @@ VEGE2M PROC
 	 JE  SELECTV3B
 
 	 MENUERROR1B:
-	 
-	 MOV AH, 09H
-	 LEA DX, NL
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, MENUERROR
+	 ;INT 21H
+	 CHANGE_COLOR 04H,MENUERROR 
 
-	 COLOR 0CH, SUBMENUERROR
-	 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -580,11 +603,15 @@ VEGE2M PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM 
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM 
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -596,10 +623,7 @@ VEGE2M ENDP
 
 VEGE3M PROC
 
-	 MOV AH, 09H
-	 LEA DX, NL
-	 INT 21H
-	 
+
 	 MOV AH, 09H
 	 LEA DX, VEGE3
 	 INT 21H
@@ -611,9 +635,9 @@ VEGE3M PROC
 	 SUB AL,30H
 
 	 CMP AL,0
-	 JLE  MENUERROR1C
+	 JL  MENUERROR1C
 	 CMP AL,4
-	 JGE  MENUERROR1C
+	 JG  MENUERROR1C
 	 CMP AL,1
 	 JE  SELECTV1C
 	 CMP AL,2
@@ -622,16 +646,15 @@ VEGE3M PROC
 	 JE  SELECTV3C
 
 	 MENUERROR1C:
-	 
-	 MOV AH, 09H
-	 LEA DX, NL
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, MENUERROR
+	 ;INT 21H
+	 CHANGE_COLOR 04H, MENUERROR
 
-	 COLOR 0CH, SUBMENUERROR
-
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -650,11 +673,15 @@ VEGE3M PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -678,9 +705,9 @@ VEGE4M PROC
 	 SUB AL,30H
 
 	 CMP AL,0
-	 JLE  MENUERROR1D
+	 JL  MENUERROR1D
 	 CMP AL,4
-	 JGE  MENUERROR1D
+	 JG  MENUERROR1D
 	 CMP AL,1
 	 JE  SELECTV1D
 	 CMP AL,2
@@ -689,16 +716,15 @@ VEGE4M PROC
 	 JE  SELECTV3D
 
 	 MENUERROR1D:
-	 
-	 MOV AH, 09H
-	 LEA DX, NL
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, MENUERROR
+	 ;INT 21H
+	 CHANGE_COLOR 04H,MENUERROR
 
-	 COLOR 0CH, SUBMENUERROR
-
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -717,11 +743,15 @@ VEGE4M PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -745,9 +775,9 @@ VEGE5M PROC
 	 SUB AL,30H
 
 	 CMP AL,0
-	 JLE  MENUERROR1E
+	 JL  MENUERROR1E
 	 CMP AL,4
-	 JGE  MENUERROR1E
+	 JG  MENUERROR1E
 	 CMP AL,1
 	 JE  SELECTV1E
 	 CMP AL,2
@@ -756,16 +786,15 @@ VEGE5M PROC
 	 JE  SELECTV3E
 
 	 MENUERROR1E:
-	 
-	 MOV AH, 09H
-	 LEA DX, NL
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, MENUERROR
+	 ;INT 21H
+	 CHANGE_COLOR 04H, MENUERROR
 
-	 COLOR 0CH, SUBMENUERROR
-
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -784,11 +813,15 @@ VEGE5M PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -803,7 +836,10 @@ SELECTV1A1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;LEA DX, ENTERQTY
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -813,7 +849,10 @@ SELECTV1A1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -822,9 +861,18 @@ SELECTV1A1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1A
 	 CMP AL,2
-     JE  CONFIRMNO1A
+     JE  USERSAYNO1A
+	 JMP USUALFLOW1A
 
+USERSAYNO1A:
+     JMP CONFIRMNO1A
+
+USUALFLOW1A:
+     MOV AH, 01H
+     INT 21H
+	 
 	 CONFIRMYES1A:
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -832,29 +880,38 @@ SELECTV1A1 PROC
 	 MOV AH,09H
      LEA DX,SPACE
      INT 21H
-
+     
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
-
+	 CALL ConvertToNum
+	 CALL CountQuantity
+	 
+	 lea si, leaf_lettuce
+	 mov cx, leaf_lettuce_len
+	 call AddItemToList
+	 
 	 MOV AX, LEAFLETTUCEPRICE
 	 MUL QUANTITY
 	 MOV DX, TOTAL
 	 ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -866,11 +923,15 @@ SELECTV1A1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -883,7 +944,10 @@ SELECTV2A1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;LEA DX, ENTERQTY
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -893,7 +957,10 @@ SELECTV2A1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -902,12 +969,24 @@ SELECTV2A1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1B
 	 CMP AL,2
-     JE  CONFIRMNO1B
+     JE  USERSAYNO1B
+     JMP USUALFLOW1B
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1B:
+     JMP CONFIRMNO1B
+
+USUALFLOW1B:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1B:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, arugula_lettuce_len
+     lea si, arugula_lettuce
+	 call AddItemToList
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -918,7 +997,7 @@ SELECTV2A1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, ARUGULAPRICE
 	 MUL QUANTITY
@@ -926,18 +1005,22 @@ SELECTV2A1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -949,11 +1032,15 @@ SELECTV2A1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -966,7 +1053,10 @@ SELECTV1B1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -976,7 +1066,10 @@ SELECTV1B1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -985,12 +1078,24 @@ SELECTV1B1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1C
 	 CMP AL,2
-     JE  CONFIRMNO1C
+     JE  USERSAYNO1C
+     JMP USUALFLOW1C
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1C:
+     JMP CONFIRMNO1C
+
+USUALFLOW1C:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1C:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, red_carrot_len
+     lea si, red_carrot
+	 call AddItemToList
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1001,7 +1106,7 @@ SELECTV1B1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, REDCARROTPRICE
 	 MUL QUANTITY
@@ -1009,18 +1114,22 @@ SELECTV1B1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1032,11 +1141,15 @@ SELECTV1B1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;NT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1050,7 +1163,10 @@ SELECTV2B1 PROC
      LEA DX,NL
      INT 21H
 
-	COLOR 09H,ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	;INT 21H
+	CHANGE_COLOR 09H,ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -1060,7 +1176,10 @@ SELECTV2B1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -1069,12 +1188,24 @@ SELECTV2B1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1D
 	 CMP AL,2
-     JE  CONFIRMNO1D
+     JE  USERSAYNO1D
+     JMP USUALFLOW1D
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1D:
+     JMP CONFIRMNO1D
+
+USUALFLOW1D:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1D:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, mini_carrot_len
+     lea si, mini_carrot
+	 call AddItemToList
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1085,7 +1216,7 @@ SELECTV2B1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, MINICARROTPRICE
 	 MUL QUANTITY
@@ -1093,18 +1224,22 @@ SELECTV2B1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1116,11 +1251,15 @@ SELECTV2B1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1134,7 +1273,10 @@ SELECTV1C1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -1144,7 +1286,10 @@ SELECTV1C1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -1153,12 +1298,24 @@ SELECTV1C1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1E
 	 CMP AL,2
-     JE  CONFIRMNO1E
+     JE  USERSAYNO1E
+     JMP USUALFLOW1E
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1E:
+     JMP CONFIRMNO1E
+
+USUALFLOW1E:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1E:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, japanese_cucumber_len
+     lea si, japanese_cucumber
+	 call AddItemToList
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1169,7 +1326,7 @@ SELECTV1C1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, JAPANESECUCUMBERPRICE
 	 MUL QUANTITY
@@ -1177,18 +1334,22 @@ SELECTV1C1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1200,11 +1361,15 @@ SELECTV1C1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1218,7 +1383,10 @@ SELECTV2C1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -1228,7 +1396,10 @@ SELECTV2C1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -1237,12 +1408,24 @@ SELECTV2C1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1F
 	 CMP AL,2
-     JE  CONFIRMNO1F
+     JE  USERSAYNO1F
+     JMP USUALFLOW1F
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1F:
+     JMP CONFIRMNO1F
+
+USUALFLOW1F:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1F:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, cucumber_len
+     lea si, cucumber
+	 call AddItemToList
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1253,7 +1436,7 @@ SELECTV2C1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, NCUCUMBERPRICE
 	 MUL QUANTITY
@@ -1261,18 +1444,22 @@ SELECTV2C1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1284,11 +1471,15 @@ SELECTV2C1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1302,7 +1493,10 @@ SELECTV1D1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -1312,7 +1506,10 @@ SELECTV1D1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -1321,12 +1518,24 @@ SELECTV1D1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1G
 	 CMP AL,2
-     JE  CONFIRMNO1G
+     JE  USERSAYNO1G
+     JMP USUALFLOW1G
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1G:
+     JMP CONFIRMNO1G
+
+USUALFLOW1G:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1G:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, yellow_potatos_len
+     lea si, yellow_potatos
+	 call AddItemToList
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1337,7 +1546,7 @@ SELECTV1D1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, YELLOWPOTATOPRICE
 	 MUL QUANTITY
@@ -1345,18 +1554,22 @@ SELECTV1D1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1368,11 +1581,15 @@ SELECTV1D1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1385,7 +1602,10 @@ SELECTV2D1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -1395,7 +1615,10 @@ SELECTV2D1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -1404,12 +1627,24 @@ SELECTV2D1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1H
 	 CMP AL,2
-     JE  CONFIRMNO1H
+     JE  USERSAYNO1H
+     JMP USUALFLOW1H
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1H:
+     JMP CONFIRMNO1H
+
+USUALFLOW1H:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1H:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, russet_potato_len
+     lea si, russet_potato
+	 call AddItemToList
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1420,7 +1655,7 @@ SELECTV2D1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, RUSSETPOTATOPRICE
 	 MUL QUANTITY
@@ -1428,18 +1663,22 @@ SELECTV2D1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1451,11 +1690,15 @@ SELECTV2D1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1468,7 +1711,10 @@ SELECTV1E1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -1478,7 +1724,10 @@ SELECTV1E1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -1487,12 +1736,24 @@ SELECTV1E1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1I
 	 CMP AL,2
-     JE  CONFIRMNO1I
+     JE  USERSAYNO1I
+     JMP USUALFLOW1I
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1I:
+     JMP CONFIRMNO1I
+
+USUALFLOW1I:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1I:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, cameron_corn_len
+     lea si, cameron_corn
+	 call AddItemToList
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1503,7 +1764,7 @@ SELECTV1E1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, CAMERONCORNPRICE
 	 MUL QUANTITY
@@ -1511,18 +1772,22 @@ SELECTV1E1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1534,11 +1799,15 @@ SELECTV1E1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1551,7 +1820,10 @@ SELECTV2E1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -1561,7 +1833,10 @@ SELECTV2E1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -1570,12 +1845,24 @@ SELECTV2E1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES1J
 	 CMP AL,2
-     JE  CONFIRMNO1J
+     JE  USERSAYNO1J
+     JMP USUALFLOW1J
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO1J:
+     JMP CONFIRMNO1J
+
+USUALFLOW1J:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES1J:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, dent_corn_len
+     lea si, dent_corn
+	 call AddItemToList
+	
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1586,7 +1873,7 @@ SELECTV2E1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, DENTCORNPRICE
 	 MUL QUANTITY
@@ -1594,18 +1881,22 @@ SELECTV2E1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1617,12 +1908,16 @@ SELECTV2E1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
-	 
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
+
 	 MOV AH,01H
 	 INT 21H
 
@@ -1638,7 +1933,9 @@ FM	PROC
      MOV AX, 0003H
      INT 10H
 
-	 COLOR 0EH, FRUITM
+	 MOV AH, 09H
+	 LEA DX, FRUITM
+	 INT 21H
 
 	 FRUITMMENU:
 
@@ -1685,11 +1982,15 @@ FM	PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1697,11 +1998,15 @@ FM	PROC
 	 JMP HOMAINMENU
 
 	 MENUERROR2:
-	 COLOR 0CH, MENUERROR
+	 ;MOV AH, 09H
+	 ;LEA DX, MENUERROR
+	 ;INT 21H
+	 CHANGE_COLOR 04H, MENUERROR
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1713,10 +2018,7 @@ FM	ENDP
 
 FRUIT1M PROC
 
-	 MOV AH, 09H
-	 LEA DX, NL
-	 INT 21H
-	 
+
 	 MOV AH, 09H
 	 LEA DX, FRUIT1
 	 INT 21H
@@ -1739,16 +2041,15 @@ FRUIT1M PROC
 	 JE  SELECTF3A
 
 	 MENUERROR2A:
-	 
-	 MOV AH, 09H
-	 LEA DX, NL
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, MENUERROR
+	 ;INT 21H
+	 CHANGE_COLOR 04H, MENUERROR
 
-	 COLOR 0CH, SUBMENUERROR
-
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1767,11 +2068,15 @@ FRUIT1M PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1806,16 +2111,15 @@ FRUIT2M PROC
 	 JE  SELECTF3B
 
 	 MENUERROR2B:
-	 
-	 MOV AH, 09H
-	 LEA DX, NL
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, MENUERROR
+	 ;INT 21H
+	 CHANGE_COLOR 04H, MENUERROR
 
-	 COLOR 0CH, SUBMENUERROR
-
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1834,11 +2138,15 @@ FRUIT2M PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1873,16 +2181,15 @@ FRUIT3M PROC
 	 JE  SELECTF3C
 
 	 MENUERROR2C:
-	 
-	 MOV AH, 09H
-	 LEA DX, NL
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, MENUERROR
+	 ;INT 21H
+	 CHANGE_COLOR 04H, MENUERROR
 
-	 COLOR 0CH, SUBMENUERROR
-
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1901,11 +2208,15 @@ FRUIT3M PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1940,16 +2251,15 @@ FRUIT4M PROC
 	 JE  SELECTF3D
 
 	 MENUERROR2D:
-	 
-	 MOV AH, 09H
-	 LEA DX, NL
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, MENUERROR
+	 ;INT 21H
+	 CHANGE_COLOR 04H, MENUERROR
 
-	 COLOR 0CH, SUBMENUERROR
-
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -1968,11 +2278,15 @@ FRUIT4M PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2007,16 +2321,15 @@ FRUIT5M PROC
 	 JE  SELECTF3E
 
 	 MENUERROR2E:
-	 
-	 MOV AH, 09H
-	 LEA DX, NL
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, MENUERROR
+	 ;INT 21H
+	 CHANGE_COLOR 04H, MENUERROR
 
-	 COLOR 0CH, SUBMENUERROR
-
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2035,11 +2348,15 @@ FRUIT5M PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2054,7 +2371,10 @@ SELECTF1A1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -2064,7 +2384,10 @@ SELECTF1A1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -2073,9 +2396,24 @@ SELECTF1A1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES2A
 	 CMP AL,2
-     JE  CONFIRMNO2A
+     JE  USERSAYNO2A
+     JMP USUALFLOW2A
+
+USERSAYNO2A:
+     JMP CONFIRMNO2A
+
+USUALFLOW2A:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2A:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, fuji_apple_len
+     lea si, fuji_apple
+	 call AddItemToList
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2086,7 +2424,7 @@ SELECTF1A1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
  
 	 MOV AX, FUJIPRICE
 	 MUL QUANTITY
@@ -2094,19 +2432,22 @@ SELECTF1A1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
 
-
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2118,11 +2459,15 @@ SELECTF1A1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2135,7 +2480,10 @@ SELECTF2A1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -2145,7 +2493,10 @@ SELECTF2A1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -2154,12 +2505,24 @@ SELECTF2A1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES2B
 	 CMP AL,2
-     JE  CONFIRMNO2B
+     JE  USERSAYNO2B
+     JMP USUALFLOW2B
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO2B:
+     JMP CONFIRMNO2B
+
+USUALFLOW2B:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2B:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, pink_lady_apple_len
+	 lea si, pink_lady_apple
+	 call AddItemToList
+	
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2170,7 +2533,7 @@ SELECTF2A1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, PINKLADYPRICE
 	 MUL QUANTITY
@@ -2178,18 +2541,22 @@ SELECTF2A1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
- 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2201,12 +2568,16 @@ SELECTF2A1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
-	 
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
+
 	 MOV AH,01H
 	 INT 21H
 
@@ -2218,7 +2589,10 @@ SELECTF1B1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -2228,7 +2602,10 @@ SELECTF1B1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -2237,12 +2614,27 @@ SELECTF1B1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES2C
 	 CMP AL,2
-     JE  CONFIRMNO2C
+     JE  USERSAYNO2C
+     JMP USUALFLOW2C
+
+USERSAYNO2C:
+     JMP CONFIRMNO2C
+
+USUALFLOW2C:
+     MOV AH, 01H
+     INT 21H
 
 	 MOV AH, 01H
 	 INT 21H
 
 	 CONFIRMYES2C:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, seville_orange_len
+	 lea si, seville_orange
+	 call AddItemToList
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2253,7 +2645,7 @@ SELECTF1B1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, SERVILLEPRICE
 	 MUL QUANTITY
@@ -2261,18 +2653,22 @@ SELECTF1B1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
- 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2284,11 +2680,15 @@ SELECTF1B1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2302,7 +2702,10 @@ SELECTF2B1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -2312,7 +2715,10 @@ SELECTF2B1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -2321,12 +2727,24 @@ SELECTF2B1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES2D
 	 CMP AL,2
-     JE  CONFIRMNO2D
+     JE  USERSAYNO2D
+     JMP USUALFLOW2D
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO2D:
+     JMP CONFIRMNO2D
+
+USUALFLOW2D:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2D:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, blood_orange_len
+	 lea si, blood_orange
+	 call AddItemToList
+	
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2337,7 +2755,7 @@ SELECTF2B1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, BLOODPRICE
 	 MUL QUANTITY
@@ -2345,18 +2763,22 @@ SELECTF2B1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
- 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2368,11 +2790,15 @@ SELECTF2B1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2386,7 +2812,10 @@ SELECTF1C1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -2396,7 +2825,10 @@ SELECTF1C1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -2405,12 +2837,24 @@ SELECTF1C1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES2E
 	 CMP AL,2
-     JE  CONFIRMNO2E
+     JE  USERSAYNO2E
+     JMP USUALFLOW2E
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO2E:
+     JMP CONFIRMNO2E
+
+USUALFLOW2E:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2E:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, alphonso_mango_len
+	 lea si, alphonso_mango
+	 call AddItemToList
+	
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2421,7 +2865,7 @@ SELECTF1C1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, ALPHONSOMPRICE
 	 MUL QUANTITY
@@ -2429,18 +2873,22 @@ SELECTF1C1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
-  
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+ 
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2452,11 +2900,15 @@ SELECTF1C1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2470,7 +2922,10 @@ SELECTF2C1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -2480,7 +2935,10 @@ SELECTF2C1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -2489,12 +2947,24 @@ SELECTF2C1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES2F
 	 CMP AL,2
-     JE  CONFIRMNO2F
+     JE  USERSAYNO2F
+     JMP USUALFLOW2F
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO2F:
+     JMP CONFIRMNO2F
+
+USUALFLOW2F:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2F:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, francis_mango_len
+	 lea si, francis_mango
+	 call AddItemToList
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2505,7 +2975,7 @@ SELECTF2C1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, FRANCISMPRICE
 	 MUL QUANTITY
@@ -2513,18 +2983,22 @@ SELECTF2C1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
  
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2536,11 +3010,15 @@ SELECTF2C1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2554,7 +3032,10 @@ SELECTF1D1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -2564,7 +3045,10 @@ SELECTF1D1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -2573,12 +3057,24 @@ SELECTF1D1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES2G
 	 CMP AL,2
-     JE  CONFIRMNO2G
+     JE  USERSAYNO2G
+     JMP USUALFLOW2G
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO2G:
+     JMP CONFIRMNO2G
+
+USUALFLOW2G:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2G:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, red_watermelon_len
+	 lea si, red_watermelon
+	 call AddItemToList
+	
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2589,7 +3085,7 @@ SELECTF1D1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, REDWMPRICE
 	 MUL QUANTITY
@@ -2597,18 +3093,22 @@ SELECTF1D1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
  
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2620,11 +3120,15 @@ SELECTF1D1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2637,7 +3141,10 @@ SELECTF2D1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -2647,7 +3154,10 @@ SELECTF2D1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
@@ -2656,12 +3166,24 @@ SELECTF2D1 PROC
 	 CMP AL,1
 	 JE  CONFIRMYES2H
 	 CMP AL,2
-     JE  CONFIRMNO2H
+     JE  USERSAYNO2H
+     JMP USUALFLOW2H
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO2H:
+     JMP CONFIRMNO2H
+
+USUALFLOW2H:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2H:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, yellow_watermelon_len
+	 lea si, yellow_watermelon
+	 call AddItemToList
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2672,7 +3194,7 @@ SELECTF2D1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, YELLOWWMPRICE
 	 MUL QUANTITY
@@ -2680,18 +3202,22 @@ SELECTF2D1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
  
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2703,11 +3229,15 @@ SELECTF2D1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2720,7 +3250,10 @@ SELECTF1E1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -2730,21 +3263,36 @@ SELECTF1E1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
 	 SUB AL,30H
 
 	 CMP AL,1
-	 JE  CONFIRMYES2I
-	 CMP AL,2
-     JE  CONFIRMNO2I
+     JE  CONFIRMYES2I
+     CMP AL,2
+     JE  USERSAYNO2I
+     JMP USUALFLOW2I
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO2I:
+     JMP CONFIRMNO2I
+
+USUALFLOW2I:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2I:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, galis_melon_len
+	 lea si, galis_melon
+	 call AddItemToList
+	
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2755,7 +3303,7 @@ SELECTF1E1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 
 	 MOV AX, GALIAPRICE
 	 MUL QUANTITY
@@ -2763,18 +3311,22 @@ SELECTF1E1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
  
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2786,11 +3338,15 @@ SELECTF1E1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2803,7 +3359,10 @@ SELECTF2E1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, ENTERQTY
+	 ;MOV AH, 09H
+	 ;LEA DX, ENTERQTY
+	 ;INT 21H
+	 CHANGE_COLOR 09H, ENTERQTY
 
 	 LEA DX, QUANTITY_BUFFER
 	 MOV AH, 0AH
@@ -2813,21 +3372,37 @@ SELECTF2E1 PROC
      LEA DX,NL
      INT 21H
 
-	 COLOR 09H, CONFIRM
+	 ;MOV AH, 09H
+	 ;LEA DX, CONFIRM
+	 ;INT 21H
+	 CHANGE_COLOR 09H, CONFIRM
 
 	 MOV AH,01H
 	 INT 21H
 	 SUB AL,30H
 
-	 CMP AL,1
+     CMP AL,1
 	 JE  CONFIRMYES2J
-	 CMP AL,2
-     JE  CONFIRMNO2J
+     CMP AL,2
+     JE  USERSAYNO2J
+     JMP USUALFLOW2J
 
-	 MOV AH, 01H
-	 INT 21H
+USERSAYNO2J:
+     JMP CONFIRMNO2J
+
+USUALFLOW2J:
+     MOV AH, 01H
+     INT 21H
 
 	 CONFIRMYES2J:
+	 
+	 mov bx, 0
+	 mov bx, list_offset
+	 mov cx, golden_hm_len
+	 lea si, golden_hm
+	 call AddItemToList
+	
+	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2838,7 +3413,7 @@ SELECTF2E1 PROC
 
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
-	 CALL CONVERTNUM
+	 CALL ConvertToNum
 	 
 	 MOV AX, GOLDENHMPRICE
 	 MUL QUANTITY
@@ -2846,18 +3421,22 @@ SELECTF2E1 PROC
      ADD DX, AX
 	 MOV TOTAL,DX
 
-	 COLOR 09H, DISPLAY_TOTAL
+	 ;LEA DX, DISPLAY_TOTAL
+	 ;MOV AH, 09H
+	 ;INT 21H
+	 CHANGE_COLOR 09H, DISPLAY_TOTAL
 
 	 LEA SI, TOTAL
-	 CALL CONVERTSTR
+	 CALL ConvertToStr
 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
  
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
@@ -2869,15 +3448,21 @@ SELECTF2E1 PROC
 	 LEA DX, NL
 	 INT 21H
 
-	 COLOR 06H, DISPLAY_PM
+	 ;MOV AH, 09H
+	 ;LEA DX, DISPLAY_PM
+	 ;INT 21H
+	 CHANGE_COLOR 06H, DISPLAY_PM
 
-	 MOV AH, 09H
-	 LEA DX, ANYKEY
-	 INT 21H
+	 ;MOV AH, 09H
+	 ;LEA DX, ANYKEY
+	 ;INT 21H
+	 CHANGE_COLOR 02H, ANYKEY
 
 	 MOV AH,01H
 	 INT 21H
 
 	 JMP FM
 SELECTF2E1 ENDP
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
