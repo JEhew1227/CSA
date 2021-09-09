@@ -141,7 +141,7 @@ Count:
    je EndCount
    inc quantity_count
    inc si
-   jmp CountQuantity
+   jmp Count
   
 EndCount:
    ret

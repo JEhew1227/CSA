@@ -6,7 +6,7 @@
 	  include menu.asm
 	  include quanti~1.asm
 	  include payment.asm
-	  ;include summary.asm
+	  include receipt.asm
 	  
 .CODE
 MAIN PROC
@@ -16,6 +16,7 @@ MAIN PROC
 	  CALL login_menu
 	  CALL HOMAINMENU
 	  CALL payment
+	  CALL receipt
 	  
 ENDPROGRAM:
       MOV AH,4CH

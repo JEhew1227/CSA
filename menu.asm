@@ -884,11 +884,14 @@ USUALFLOW1A:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
-	 CALL CountQuantity
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
 	 
 	 lea si, leaf_lettuce
 	 mov cx, leaf_lettuce_len
 	 call AddItemToList
+	 
 	 
 	 MOV AX, LEAFLETTUCEPRICE
 	 MUL QUANTITY
@@ -981,12 +984,6 @@ USUALFLOW1B:
 
 	 CONFIRMYES1B:
 	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, arugula_lettuce_len
-     lea si, arugula_lettuce
-	 call AddItemToList
-	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -998,6 +995,13 @@ USUALFLOW1B:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, arugula_lettuce
+	 mov cx, arugula_lettuce_len
+	 call AddItemToList
 
 	 MOV AX, ARUGULAPRICE
 	 MUL QUANTITY
@@ -1090,12 +1094,6 @@ USUALFLOW1C:
 
 	 CONFIRMYES1C:
 	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, red_carrot_len
-     lea si, red_carrot
-	 call AddItemToList
-	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1107,6 +1105,13 @@ USUALFLOW1C:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, red_carrot
+	 mov cx, red_carrot_len
+	 call AddItemToList
 
 	 MOV AX, REDCARROTPRICE
 	 MUL QUANTITY
@@ -1200,12 +1205,6 @@ USUALFLOW1D:
 
 	 CONFIRMYES1D:
 	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, mini_carrot_len
-     lea si, mini_carrot
-	 call AddItemToList
-	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1213,10 +1212,17 @@ USUALFLOW1D:
 	 MOV AH,09H
      LEA DX,SPACE
      INT 21H
-
+      
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, mini_carrot
+	 mov cx, mini_carrot_len
+	 call AddItemToList
 
 	 MOV AX, MINICARROTPRICE
 	 MUL QUANTITY
@@ -1310,12 +1316,6 @@ USUALFLOW1E:
 
 	 CONFIRMYES1E:
 	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, japanese_cucumber_len
-     lea si, japanese_cucumber
-	 call AddItemToList
-	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1327,6 +1327,13 @@ USUALFLOW1E:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, japanese_cucumber
+	 mov cx, japanese_cucumber_len
+	 call AddItemToList
 
 	 MOV AX, JAPANESECUCUMBERPRICE
 	 MUL QUANTITY
@@ -1420,12 +1427,6 @@ USUALFLOW1F:
 
 	 CONFIRMYES1F:
 	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, cucumber_len
-     lea si, cucumber
-	 call AddItemToList
-	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1437,6 +1438,13 @@ USUALFLOW1F:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, cucumber
+	 mov cx, cucumber_len
+	 call AddItemToList
 
 	 MOV AX, NCUCUMBERPRICE
 	 MUL QUANTITY
@@ -1530,12 +1538,6 @@ USUALFLOW1G:
 
 	 CONFIRMYES1G:
 	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, yellow_potatos_len
-     lea si, yellow_potatos
-	 call AddItemToList
-	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1547,6 +1549,13 @@ USUALFLOW1G:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, yellow_potatos
+	 mov cx, yellow_potatos_len
+	 call AddItemToList
 
 	 MOV AX, YELLOWPOTATOPRICE
 	 MUL QUANTITY
@@ -1639,12 +1648,6 @@ USUALFLOW1H:
 
 	 CONFIRMYES1H:
 	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, russet_potato_len
-     lea si, russet_potato
-	 call AddItemToList
-	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1656,6 +1659,13 @@ USUALFLOW1H:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, russet_potato
+	 mov cx, russet_potato_len
+	 call AddItemToList
 
 	 MOV AX, RUSSETPOTATOPRICE
 	 MUL QUANTITY
@@ -1748,12 +1758,6 @@ USUALFLOW1I:
 
 	 CONFIRMYES1I:
 	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, cameron_corn_len
-     lea si, cameron_corn
-	 call AddItemToList
-	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -1765,6 +1769,13 @@ USUALFLOW1I:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, cameron_corn
+	 mov cx, cameron_corn_len
+	 call AddItemToList
 
 	 MOV AX, CAMERONCORNPRICE
 	 MUL QUANTITY
@@ -1856,12 +1867,6 @@ USUALFLOW1J:
      INT 21H
 
 	 CONFIRMYES1J:
-	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, dent_corn_len
-     lea si, dent_corn
-	 call AddItemToList
 	
 	 MOV AH,09H
      LEA DX,NL
@@ -1874,6 +1879,13 @@ USUALFLOW1J:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, dent_corn
+	 mov cx, dent_corn_len
+	 call AddItemToList
 
 	 MOV AX, DENTCORNPRICE
 	 MUL QUANTITY
@@ -2408,12 +2420,6 @@ USUALFLOW2A:
 
 	 CONFIRMYES2A:
 	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, fuji_apple_len
-     lea si, fuji_apple
-	 call AddItemToList
-	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2425,6 +2431,13 @@ USUALFLOW2A:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, fuji_apple
+	 mov cx, fuji_apple_len
+	 call AddItemToList
  
 	 MOV AX, FUJIPRICE
 	 MUL QUANTITY
@@ -2516,12 +2529,6 @@ USUALFLOW2B:
      INT 21H
 
 	 CONFIRMYES2B:
-	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, pink_lady_apple_len
-	 lea si, pink_lady_apple
-	 call AddItemToList
 	
 	 MOV AH,09H
      LEA DX,NL
@@ -2534,6 +2541,13 @@ USUALFLOW2B:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, pink_lady_apple
+	 mov cx, pink_lady_apple_len
+	 call AddItemToList
 
 	 MOV AX, PINKLADYPRICE
 	 MUL QUANTITY
@@ -2629,12 +2643,6 @@ USUALFLOW2C:
 
 	 CONFIRMYES2C:
 	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, seville_orange_len
-	 lea si, seville_orange
-	 call AddItemToList
-	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2646,6 +2654,13 @@ USUALFLOW2C:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, seville_orange
+	 mov cx, seville_orange_len
+	 call AddItemToList
 
 	 MOV AX, SERVILLEPRICE
 	 MUL QUANTITY
@@ -2738,12 +2753,6 @@ USUALFLOW2D:
      INT 21H
 
 	 CONFIRMYES2D:
-	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, blood_orange_len
-	 lea si, blood_orange
-	 call AddItemToList
 	
 	 MOV AH,09H
      LEA DX,NL
@@ -2756,6 +2765,13 @@ USUALFLOW2D:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, blood_orange
+	 mov cx, blood_orange_len
+	 call AddItemToList
 
 	 MOV AX, BLOODPRICE
 	 MUL QUANTITY
@@ -2848,13 +2864,7 @@ USUALFLOW2E:
      INT 21H
 
 	 CONFIRMYES2E:
-	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, alphonso_mango_len
-	 lea si, alphonso_mango
-	 call AddItemToList
-	
+
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2866,6 +2876,13 @@ USUALFLOW2E:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, alphonso_mango
+	 mov cx, alphonso_mango_len
+	 call AddItemToList
 
 	 MOV AX, ALPHONSOMPRICE
 	 MUL QUANTITY
@@ -2959,12 +2976,6 @@ USUALFLOW2F:
 
 	 CONFIRMYES2F:
 	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, francis_mango_len
-	 lea si, francis_mango
-	 call AddItemToList
-	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -2976,6 +2987,13 @@ USUALFLOW2F:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, francis_mango
+	 mov cx, francis_mango_len
+	 call AddItemToList
 
 	 MOV AX, FRANCISMPRICE
 	 MUL QUANTITY
@@ -3068,12 +3086,6 @@ USUALFLOW2G:
      INT 21H
 
 	 CONFIRMYES2G:
-	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, red_watermelon_len
-	 lea si, red_watermelon
-	 call AddItemToList
 	
 	 MOV AH,09H
      LEA DX,NL
@@ -3086,6 +3098,13 @@ USUALFLOW2G:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, red_watermelon
+	 mov cx, red_watermelon_len
+	 call AddItemToList
 
 	 MOV AX, REDWMPRICE
 	 MUL QUANTITY
@@ -3178,12 +3197,6 @@ USUALFLOW2H:
 
 	 CONFIRMYES2H:
 	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, yellow_watermelon_len
-	 lea si, yellow_watermelon
-	 call AddItemToList
-	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -3195,6 +3208,13 @@ USUALFLOW2H:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, yellow_watermelon
+	 mov cx, yellow_watermelon_len
+	 call AddItemToList
 
 	 MOV AX, YELLOWWMPRICE
 	 MUL QUANTITY
@@ -3286,12 +3306,6 @@ USUALFLOW2I:
      INT 21H
 
 	 CONFIRMYES2I:
-	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, galis_melon_len
-	 lea si, galis_melon
-	 call AddItemToList
 	
 	 MOV AH,09H
      LEA DX,NL
@@ -3304,6 +3318,13 @@ USUALFLOW2I:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, galis_melon
+	 mov cx, galis_melon_len
+	 call AddItemToList
 
 	 MOV AX, GALIAPRICE
 	 MUL QUANTITY
@@ -3396,13 +3417,6 @@ USUALFLOW2J:
 
 	 CONFIRMYES2J:
 	 
-	 mov bx, 0
-	 mov bx, list_offset
-	 mov cx, golden_hm_len
-	 lea si, golden_hm
-	 call AddItemToList
-	
-	 
 	 MOV AH,09H
      LEA DX,NL
      INT 21H
@@ -3414,6 +3428,13 @@ USUALFLOW2J:
 	 LEA SI, QUANTITY_BUFFER +2
 	 LEA DI, QUANTITY
 	 CALL ConvertToNum
+	 
+	 LEA SI, QUANTITY_BUFFER +2
+	 call CountQuantity
+	 
+	 lea si, golden_hm
+	 mov cx, golden_hm_len
+	 call AddItemToList
 	 
 	 MOV AX, GOLDENHMPRICE
 	 MUL QUANTITY

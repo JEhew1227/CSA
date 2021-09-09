@@ -1,5 +1,3 @@
-.model small
-.stack 100
 .data
 ReceiptLogo 	DB 10,13, "      ___ ___ ___ ___ ___ ___ _____    "
 				DB 10,13, "     | _ \ __/ __| __|_ _| _ \_   _|    "
@@ -15,13 +13,13 @@ ReceiptT DB 10,13, "|===========================================================
  ;----------------------------------------------------------------------------------------        
 	MSG6 DB "|Product               Price                Quantity	    |$" 
 	MSG8 DB "|-----------------------------------------------------------|$"
-	MSG9 DB "|SubTotal : $"
-    MSG10 DB "|Service Tax: $"
+	MSG9 DB "|Total(without SST) =RM$"
+    MSG10 DB "|Service Tax(SST 5%) =RM$"
 	MSG11 DB "|-----------------------------------------------------------|$"
-	MSG12 DB "|Total : $"
+	MSG12 DB "|Total =RM$"
 	MSG13 DB "|===========================================================|$"
 	MSG14 DB "	Thank you for the purchase! See you again!	         $"
-    NL DB 0AH,0DH,"$"
+    N_L DB 0AH,0DH,"$"
 
 .code
 receipt proc
@@ -36,7 +34,7 @@ receipt proc
         lea DX,receiptT
         int 21H
 
-        LEA DX,NL
+        LEA DX,N_L
         MOV AH,9
         INT 21H 
 
@@ -44,7 +42,7 @@ receipt proc
         lea DX,MSG6
         int 21H
 
-        LEA DX,NL
+        LEA DX,N_L
         MOV AH,9
         INT 21H 
 
@@ -58,7 +56,7 @@ receipt proc
         lea DX,MSG8
         int 21H
 
-        LEA DX,NL
+        LEA DX,N_L
         MOV AH,9
         INT 21H 
 
@@ -66,11 +64,11 @@ receipt proc
         lea DX,MSG9
         int 21H
 
-        MOV AH,09H
-        LEA DX,TOTAL_NO_SST
-        INT 21H
+        
+        LEA SI,TOTAL
+        CALL ConvertToStr
 
-        LEA DX,NL
+        LEA DX,N_L
         MOV AH,9
         INT 21H 
 
@@ -78,11 +76,10 @@ receipt proc
         lea DX,MSG10
         int 21H
 
-        MOV AH,09H
-        LEA DX,servicetax_total
-        INT 21H
+        LEA SI,servicetax_total
+        CALL ConvertToStr
 
-        LEA DX,NL
+        LEA DX,N_L
         MOV AH,9
         INT 21H 
 
@@ -90,7 +87,7 @@ receipt proc
         lea DX,MSG11
         int 21H
 
-        LEA DX,NL
+        LEA DX,N_L
         MOV AH,9
         INT 21H 
 
@@ -98,11 +95,10 @@ receipt proc
         lea DX,MSG12
         int 21H
 
-        MOV AH,09H
-        LEA DX,GRAND_TOTAL
-        INT 21H
+        lea si, AMOUNT_PAY
+		call ConvertToStr
 
-        LEA DX,NL
+        LEA DX,N_L
         MOV AH,9
         INT 21H 
         
@@ -110,7 +106,7 @@ receipt proc
         lea DX,MSG13
         int 21H
 
-        LEA DX,NL
+        LEA DX,N_L
         MOV AH,9
         INT 21H 
 
@@ -118,10 +114,16 @@ receipt proc
         lea DX,MSG14
         int 21H
 
-        LEA DX,NL
+        LEA DX,N_L
         MOV AH,9
         INT 21H 
-	
-	mov ah, 4CH
-	int 21h
+	    
+		LEA DX,ANYKEY
+		MOV AH, 09h
+		INT 21H
+		
+		MOV AH,07H
+		INT 21H
+		ret
+		
 receipt endp	
