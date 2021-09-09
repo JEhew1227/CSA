@@ -20,19 +20,32 @@
 	unavailable_choice db "                  Choice unavailable. Please Enter Again. ","$"
 	
 	;sign up
-	promptSign db 		'                        Enter New User Name: $'
-	promptNewPasswrd db '                        Enter New Password : $'
+	promptSign db 		'                         Enter New User Name: $'
+	promptNewPasswrd db '                          Enter New Password: $'
+	
+	;SignUp Variables
+	newUsrname db 31,?, 31 dup ("$")
+	newPasswrd db 31,?, 31 dup ("$")
+	
+	;Boolean username validation
+	signValidUsrname db 0
+	minimumInput db 10
+	
+	
+	;SignUp Successful
+	signSuccess db "                        Successfully Registered $"
+	;signError
+	signError db "       At least 10 characters are required for both Username and password$"
 	
 	;login
 	promptLog db 		'                           Enter User Name: $'
 	promptpasswrd db 	'                            Enter Password: $' 
 	
-	;acc variable
-	newUsrname db 31,?, 31 dup ("$")
-	newPasswrd db 31,?, 31 dup ("$")
 	
-	signSuccess db "                            Successfully Registered $"
-	logSuccess db "                Successfully logged in. Press Enter To Continue$"
+	
+	
+	;Login Successful Message
+	logSuccess db "              Successfully logged in.Press Enter To Continue$"
 	
 	;acc1
 	loginUserName db 31, ?, 31 dup ("$")
@@ -40,17 +53,11 @@
 	loginPassword db 31, ?, 31 dup ("$")
 	valid_password db 0
 	
-	;login successful
-	
 	;boolean 
-	VALID_SIGNUP_USER db 0
+	
 	
 	;incorrect username
-	incorrectCredentials db "                            User not found $"
-	
-	;signError
-	signError db "                  Please Enter Something into the Field$"
-	
+	incorrectCredentials db "                         Incorrect Credentials $"
 	
 	
 .code 
@@ -182,26 +189,25 @@ signUp proc
 		
 		VALIDATE_SIGNUP:	;validate UserName input
 			mov bx, 1
-			cmp VALID_SIGNUP_USER, 1
-			je VALIDATE_SIGNPASS
+			cmp signValidUsrname, 1
+			je validate_newpassword
 			
-			VALIDATE_SIGNUSER:
-				inc bx
+			validate_newusername:
 				mov dl, newUsrname[bx]
-				inc bx
-				cmp dl, 0dh
-				jne VALIDATE_NEXT1
+				cmp dl, minimumInput
+				jge validate_next1
 				jmp SIGN_ERROR
 				
-			VALIDATE_SIGNPASS:
-				inc bx
+			validate_newpassword:
 				mov dl, newPasswrd[bx]
-				cmp dl, 0dh
-				jne SUCCESS1
-			VALIDATE_NEXT1:
-				mov VALID_SIGNUP_USER, 1
-				jmp VALIDATE_SIGNPASS
-		
+				cmp dl, minimumInput
+				jge SUCCESS1
+				jmp SIGN_ERROR
+				
+			validate_next1:
+				mov signValidUsrname, 1
+				jmp VALIDATE_SIGNUP
+				
 		SUCCESS1:
 			;mov ah, 09h
 			;lea dx, signSuccess
